@@ -14,6 +14,7 @@ use \Nette;
 use Nette\Utils\Arrays,
     Nette\Object,
     Nette\Http\SessionSection,
+    Nette\Diagnostics\Debugger,
     Nette\Http\Url;
 
 
@@ -209,7 +210,7 @@ class API extends Object {
 
         if ($response->success)
             $ses->remove();
-           
+
         return $response;
     }
 
@@ -257,6 +258,8 @@ class API extends Object {
 
     private function call(Request $request) {
 
+        Debugger::firelog($request);
+
         $ch = curl_init($this->endPoint);
 
         // Set up verbose mode
@@ -299,7 +302,9 @@ class API extends Object {
 
         curl_close($ch);
 
-        return new Response($responseNVP);
+        $response = new Response($responseNVP);
+        Debugger::firelog($response);
+        return $response;
     }
 
 
