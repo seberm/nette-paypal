@@ -154,11 +154,11 @@ class Response extends Object {
 
         $itemsData = Utils::array_keys_by_ereg($this->responseData, $pattern);
 
-        if (empty($itemsData))
-            return false;
-
         $items = array();
-        $itemsCount = count($itemsData) / count($this->CART_ITEM_KEYS);
+        $itemsCount = count($items);
+
+        if (!empty($itemsData))
+            $itemsCount = count($itemsData) / count($this->CART_ITEM_KEYS);
 
         // We must control if the result of division is integer.
         // Because if not, it means the count of keys in PayPal cart item changed.
