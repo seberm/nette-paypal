@@ -164,9 +164,7 @@ class API extends Object {
     /**
      * Prepares the parameters for the SetExpressCheckout API Call.
      */
-    public function doExpressCheckout($paymentAmount, $currencyCodeType, $paymentType, $returnURL, $cancelURL, $ses)
-    {
-
+    public function doExpressCheckout($paymentAmount, $currencyCodeType, $paymentType, $returnURL, $cancelURL, $ses) {
 
         $query = array(
             'amount' => $paymentAmount,
@@ -309,8 +307,8 @@ class API extends Object {
      * Generates URL to PayPal for redirection.
      * @return Nette\Http\Url
      */
-    public function getUrl()
-    {
+    public function getUrl() {
+
         $url = new Url($this->sandbox ? self::SANDBOX_PAYPAL_URL : self::PAYPAL_URL);
 
         $query = array(
@@ -326,68 +324,68 @@ class API extends Object {
 
 
 
-    public function setSignature($signature)
-    {
+    public function setSignature($signature) {
+
         return $this->setData('signature', (string)$signature);
     }
 
 
-    public function getSignature()
-    {
+    public function getSignature() {
+
         return $this->getData('signature');
     }
 
 
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
+
         return $this->setData('password', (string)$password);
     }
 
 
-    public function getPassword()
-    {
+    public function getPassword() {
+
         return $this->getData('password');
     }
 
 
-    public function getUsername()
-    {
+    public function getUsername() {
+
         return $this->getData('username');
     }
 
 
-    public function setUsername($username)
-    {
+    public function setUsername($username) {
+
         return $this->setData('username', (string)$username);
     }
 
 
-    public function getProxyPort()
-    {
+    public function getProxyPort() {
+
         return $this->getData('proxyPort');
     }
 
 
-    public function setPort($proxyPort)
-    {
+    public function setPort($proxyPort) {
+
         $this->data['proxyPort'] = (int)$proxyPort;
         return $this;
     }
 
-    public function getProxyHost()
-    {
+    public function getProxyHost() {
+
         return $this->getData('proxyHost');
     }
 
 
-    public function setHost($proxyHost)
-    {
+    public function setHost($proxyHost) {
+
         return $this->setData('proxyHost', (string)$proxyHost);
     }
 
 
-    public function setSandBox($opt = TRUE)
-    {
+    public function setSandBox($opt = TRUE) {
+
         $this->sandbox = (bool)$opt;
         return $this;
     }

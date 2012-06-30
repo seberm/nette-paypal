@@ -9,31 +9,30 @@ namespace PayPal\Components;
 use \Nette,
     Nette\Application\UI\Form;
 
-class ButtonInstant extends PayPalButton
-{
+class ButtonInstant extends PayPalButton {
 
     public $onSuccessBuy;
 
 	public $payImage = 'https://www.paypalobjects.com/en_US/i/btn/x-click-but3.gif';
 
 
-	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
-	{
+	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL) {
+
 		parent::__construct($parent, $name);
 
         $this->paymentType = 'Sale';
 	}
 
 
-	public function renderPay()
-	{
-		$this->template->setFile(__DIR__ . '../templates/pay.latte')
+	public function renderPay() {
+
+		$this->template->setFile(__DIR__ . '/../templates/pay.latte')
 			 ->render();
 	}
 
 
-	protected function createComponentPaypalBuyForm()
-	{
+	protected function createComponentPaypalBuyForm() {
+
 		$form = new Form;
 
 		if ($this->translator) {
@@ -48,8 +47,8 @@ class ButtonInstant extends PayPalButton
 	}
 
 
-	public function initPayment(Form $paypalBuyForm)
-	{
+	public function initPayment(Form $paypalBuyForm) {
+
 		$response = $this->api->doExpressCheckout($this->amount,
                                                 $this->currencyCode,
                                                 $this->paymentType,
@@ -67,8 +66,8 @@ class ButtonInstant extends PayPalButton
 	}
 
 
-	protected function createComponentPaypalPayForm()
-	{
+	protected function createComponentPaypalPayForm() {
+
 		$form = new Form;
 
 		if ($this->translator) {
@@ -83,8 +82,8 @@ class ButtonInstant extends PayPalButton
 	}
 
 
-	public function processPayment(Form $form)
-	{
+	public function processPayment(Form $form) {
+
 		$response = $this->api->doPayment(
 			$this->paymentType,
 			$this->presenter->session->getSection('paypal')
@@ -101,8 +100,8 @@ class ButtonInstant extends PayPalButton
 	}
 
 
-	public function handleProcessBuy()
-	{
+	public function handleProcessBuy() {
+
 		$response = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
 
 		if ($response->error) {
@@ -115,8 +114,8 @@ class ButtonInstant extends PayPalButton
 	}
 
 
-	public function handleCancel()
-	{
+	public function handleCancel() {
+
 		$response = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
 
 		if ($response->error) {

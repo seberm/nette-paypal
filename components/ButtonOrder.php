@@ -9,8 +9,7 @@ namespace PayPal\Components;
 use \Nette,
     Nette\Application\UI\Form;
 
-class ButtonOrder extends PayPalButton
-{
+class ButtonOrder extends PayPalButton {
 
     public $shipping = 0.0;
     public $tax = 0.0;
@@ -19,16 +18,16 @@ class ButtonOrder extends PayPalButton
     public $onConfirmation;
 
 
-	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
-	{
+	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL) {
+
 		parent::__construct($parent, $name);
 
         $this->paymentType = 'Order';
 	}
 
 
-	protected function createComponentPaypalBuyForm()
-	{
+	protected function createComponentPaypalBuyForm() {
+
 		$form = new Form;
 
 		if ($this->translator) {
@@ -43,8 +42,7 @@ class ButtonOrder extends PayPalButton
 	}
 
 
-	public function initPayment(Form $paypalBuyForm)
-	{
+	public function initPayment(Form $paypalBuyForm) {
 
         $response = $this->api->setExpressCheckout($this->shipping,
                                        $this->tax,
@@ -81,8 +79,8 @@ class ButtonOrder extends PayPalButton
 
 
     /*
-	public function processPayment(Form $form)
-	{
+	public function processPayment(Form $form) {
+
 		$data = $this->api->doPayment(
 			$this->paymentType,
 			$this->presenter->session->getSection('paypal')
@@ -125,8 +123,8 @@ class ButtonOrder extends PayPalButton
 
 
     /*
-	public function handleProcessBuy()
-	{
+	public function handleProcessBuy() {
+
 		$data = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
 
 		if ($this->api->error) {
@@ -140,8 +138,8 @@ class ButtonOrder extends PayPalButton
     */
 
 
-	public function handleCancel()
-	{
+	public function handleCancel() {
+
 		$response = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
 
 		if ($response->error) {

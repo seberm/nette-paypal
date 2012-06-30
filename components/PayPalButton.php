@@ -7,13 +7,12 @@
 namespace PayPal\Components;
 
 use \PayPal,
-    API;
+    PayPal\API;
 
 use \Nette,
     Nette\Application\UI\Form;
 
-abstract class PayPalButton extends Nette\Application\UI\Control
-{
+abstract class PayPalButton extends Nette\Application\UI\Control {
 
 	/**
 	 * PayPal's image source
@@ -40,22 +39,22 @@ abstract class PayPalButton extends Nette\Application\UI\Control
 	public $onError;
 
 
-	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
-	{
+	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL) {
+
 		parent::__construct($parent, $name);
 
 		$this->api = new API;
 	}
 
 
-	public function setTranslator(Nette\Localization\ITranslator $translator)
-	{
+	public function setTranslator(Nette\Localization\ITranslator $translator) {
+
 		$this->translator = $translator;
 	}
 
 
-	final public function getTranslator()
-	{
+	final public function getTranslator() {
+
 		return $this->translator;
 	}
 
@@ -66,15 +65,15 @@ abstract class PayPalButton extends Nette\Application\UI\Control
     }
 
 
-	public function renderBuy()
-	{
-		$this->template->setFile(__DIR__ . '../templates/buy.latte')
+	public function renderBuy() {
+
+		$this->template->setFile(__DIR__ . '/../templates/buy.latte')
 			->render();
 	}
 
 
-	public function setCredentials(array $params)
-	{
+	public function setCredentials(array $params) {
+
 		$this->api->setData($params);
 		return $this;
 	}
@@ -88,8 +87,7 @@ abstract class PayPalButton extends Nette\Application\UI\Control
 
 
 	abstract protected function createComponentPaypalBuyForm();
-        /*
-	{
+        /* {
 		$form = new Form;
 
 		if ($this->translator) {
@@ -106,8 +104,8 @@ abstract class PayPalButton extends Nette\Application\UI\Control
 
 
         /*
-	public function initPayment(Form $paypalBuyForm)
-	{
+	public function initPayment(Form $paypalBuyForm) {
+
 		$this->api->doExpressCheckout($this->amount,
 			$this->currencyCode,
 			$this->paymentType,
@@ -139,8 +137,8 @@ abstract class PayPalButton extends Nette\Application\UI\Control
 
 
     /*
-	public function handleProcessBuy()
-	{
+	public function handleProcessBuy() {
+
 		$data = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
 
 		$component = $this->getComponent('paypalBuyForm');
@@ -163,21 +161,21 @@ abstract class PayPalButton extends Nette\Application\UI\Control
     }
 
 
-	protected function redirectToPaypal()
-	{
+	protected function redirectToPaypal() {
+
 		$url = $this->api->url;
 		$this->presenter->redirectUrl($url);
 	}
 
 
-	public function loadState(array $params)
-	{
+	public function loadState(array $params) {
+
 		parent::loadState($params);
 	}
 
 
-	protected function buildUrl($signal)
-	{
+	protected function buildUrl($signal) {
+
 		$url = $this->presenter->link($this->name . ":${signal}!");
 
 		// Some better way to do it in Nette?
@@ -185,8 +183,8 @@ abstract class PayPalButton extends Nette\Application\UI\Control
 	}
 
 
-	public function setAmount($amount)
-	{
+	public function setAmount($amount) {
+
 		$this->amount = $amount;
 		return $this;
 	}
@@ -199,8 +197,8 @@ abstract class PayPalButton extends Nette\Application\UI\Control
 	}
 
 
-	public function setPaymentType($type)
-	{
+	public function setPaymentType($type) {
+
 		$this->paymentType = $type;
 		return $this;
 	}
