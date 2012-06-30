@@ -7,7 +7,8 @@
 
 namespace PayPal;
 
-use PayPal\Query;
+use \PayPal,
+    PayPal\Query;
 
 use \Nette;
 use Nette\Object,

@@ -7,7 +7,8 @@
 
 namespace PayPal;
 
-use PayPal\Utils;
+use \PayPal,
+    PayPal\Utils;
 
 use \Nette;
 use Nette\Object,

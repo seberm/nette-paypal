@@ -6,7 +6,8 @@
 
 namespace PayPal;
 
-use PayPal\Response,
+use \PayPal,
+    PayPal\Response,
     PayPal\Request;
 
 use \Nette;

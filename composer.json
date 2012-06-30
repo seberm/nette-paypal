@@ -7,7 +7,8 @@
 	"authors": [
 		{
 			"name": "Otto Šabart",
-			"homepage": "http://seberm.com"
+			"homepage": "http://seberm.com",
+            "email": "seberm@gmail.com"
 		}
 	]
 }
