@@ -161,9 +161,9 @@ abstract class PayPalButton extends Nette\Application\UI\Control {
     }
 
 
-	protected function redirectToPaypal() {
+	protected function redirectToPaypal($commit = false) {
 
-		$url = $this->api->url;
+		$url = $this->api->getUrl($commit);
 		$this->presenter->redirectUrl($url);
 	}
 
