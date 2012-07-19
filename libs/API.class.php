@@ -312,7 +312,7 @@ class API extends Object {
      * Generates URL to PayPal for redirection.
      * @return Nette\Http\Url
      */
-    public function getUrl() {
+    public function getUrl($commit = false) {
 
         $url = new Url($this->sandbox ? self::SANDBOX_PAYPAL_URL : self::PAYPAL_URL);
 
@@ -320,7 +320,9 @@ class API extends Object {
             'cmd' => '_express-checkout',
             'token' => $this->token,
         );
-
+        
+        if($commit) $query['useraction'] = 'commit';
+        
         $url->setQuery($query);
 
         return $url;
