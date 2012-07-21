@@ -161,6 +161,11 @@ abstract class PayPalButton extends Nette\Application\UI\Control {
     }
 
 
+    /**
+     * Redirects user to PayPal page
+     *
+     * @param $commit Setting this to true you can shorten your checkout flow to let buyers complete their purchases on PayPal. Then, you can skip the order confirmation page.
+     */
 	protected function redirectToPaypal($commit = false) {
 
 		$url = $this->api->getUrl($commit);
