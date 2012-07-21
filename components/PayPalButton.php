@@ -23,6 +23,12 @@ abstract class PayPalButton extends Nette\Application\UI\Control {
 	public $paymentType;
 	public $amount;
 
+    /**
+     * @var $redirectToConfirm Setting this to false you can shorten your checkout flow to let buyers complete their purchases on PayPal. Then, you can skip the order confirmation page.
+     */
+    public $redirectToConfirm = true; 
+
+
 	/**
 	 * @var API
 	 */
@@ -79,9 +85,16 @@ abstract class PayPalButton extends Nette\Application\UI\Control {
 	}
 
 
-	public function setSandBox($stat = TRUE)
-	{
+	public function setSandBox($stat = TRUE) {
+
 		$this->api->setSandbox($stat);
+		return $this;
+	}
+
+
+	public function setRedirectToConfirm($redirect = true) {
+
+		$this->redirectToConfirm = $redirect;
 		return $this;
 	}
 
@@ -163,12 +176,10 @@ abstract class PayPalButton extends Nette\Application\UI\Control {
 
     /**
      * Redirects user to PayPal page
-     *
-     * @param $commit Setting this to true you can shorten your checkout flow to let buyers complete their purchases on PayPal. Then, you can skip the order confirmation page.
-     */
-	protected function redirectToPaypal($commit = false) {
+     **/
+	protected function redirectToPaypal() {
 
-		$url = $this->api->getUrl($commit);
+		$url = $this->api->getUrl(!$this->redirectToConfirm);
 		$this->presenter->redirectUrl($url);
 	}
 
