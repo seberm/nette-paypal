@@ -310,6 +310,9 @@ class API extends Object {
 
     /**
      * Generates URL to PayPal for redirection.
+     *
+     * @param $commit determines whether buyers complete their purchases on PayPal or on your website
+     *
      * @return Nette\Http\Url
      */
     public function getUrl($commit = false) {
@@ -321,7 +324,8 @@ class API extends Object {
             'token' => $this->token,
         );
         
-        if($commit) $query['useraction'] = 'commit';
+        if ($commit)
+            $query['useraction'] = 'commit';
         
         $url->setQuery($query);
 
