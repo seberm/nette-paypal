@@ -50,6 +50,7 @@ class ButtonInstant extends PayPalButton {
 	public function initPayment(Form $paypalBuyForm) {
 
 		$response = $this->api->doExpressCheckout($this->amount,
+						null,
                                                 $this->currencyCode,
                                                 $this->paymentType,
                                                 $this->buildUrl('processBuy'),
