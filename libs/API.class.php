@@ -165,10 +165,11 @@ class API extends Object {
     /**
      * Prepares the parameters for the SetExpressCheckout API Call.
      */
-    public function doExpressCheckout($paymentAmount, $currencyCodeType, $paymentType, $returnURL, $cancelURL, $ses) {
+    public function doExpressCheckout($paymentAmount, $description, $currencyCodeType, $paymentType, $returnURL, $cancelURL, $ses) {
 
         $query = array(
             'amount' => $paymentAmount,
+            'description' => $description,
             'paymentAction' => $paymentType,
             'returnUrl' => $returnURL,
             'cancelUrl' => $cancelURL,
