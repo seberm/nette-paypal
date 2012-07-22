@@ -120,6 +120,7 @@ abstract class PayPalButton extends Nette\Application\UI\Control {
 	public function initPayment(Form $paypalBuyForm) {
 
 		$this->api->doExpressCheckout($this->amount,
+			null,
 			$this->currencyCode,
 			$this->paymentType,
 			$this->buildUrl('processBuy'),
