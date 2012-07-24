@@ -4,7 +4,7 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal;
+namespace PayPal\API;
 
 use \PayPal,
     PayPal\Response,
