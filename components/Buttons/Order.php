@@ -4,15 +4,16 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\Components;
+namespace PayPal\Components\Buttons;
+
+use \PayPal;
+use \PayPal\Components\Button;
 
 use \Nette,
     Nette\Application\UI\Form;
 
-class ButtonOrder extends PayPalButton {
+class Order extends Button {
 
-    public $shipping = 0.0;
-    public $tax = 0.0;
 
     // Handlers
     public $onConfirmation;
@@ -26,23 +27,21 @@ class ButtonOrder extends PayPalButton {
 	}
 
 
+    /**
+     * Create a basic button
+     */
 	protected function createComponentPaypalBuyForm() {
 
-		$form = new Form;
+		$button = $this->createComponenButton();
 
-		if ($this->translator) {
-			$form->setTranslator($this->translator);
-		}
-
-		$form->addImage('paypalCheckOut', self::PAYPAL_IMAGE, 'Check out with PayPal');
-
-		$form->onSuccess[] = callback($this, 'initPayment');
-
-		return $form;
+        return $button;
 	}
 
 
-	public function initPayment(Form $paypalBuyForm) {
+    /**
+     * @override
+     */
+	public function initPayment(Form $button) {
 
         $response = $this->api->setExpressCheckout($this->shipping,
                                        $this->tax,

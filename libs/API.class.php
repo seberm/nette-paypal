@@ -33,6 +33,9 @@ class API extends Object {
     // Direct PayPal URLs
     const END_POINT = 'https://api-3t.paypal.com/nvp';
 
+    /**
+     * @todo Add more various currencies
+     */
     const CURRENCY_CROUND = 'CZK';
     const CURRENCY_EURO = 'EUR';
 

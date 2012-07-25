@@ -4,12 +4,15 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\Components;
+namespace PayPal\Components\Buttons;
+
+use \PayPal;
+use \PayPal\Components\Button;
 
 use \Nette,
     Nette\Application\UI\Form;
 
-class ButtonInstant extends PayPalButton {
+class Instant extends Button {
 
     public $onSuccessBuy;
 
