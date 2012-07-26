@@ -8,3 +8,6 @@ PayPal\Components\Button -> abstract class for buttons
 
 
 PayPal\Components\ .... -> Other components -> but it's a subclass of Control
+
+
+In the future... will be one main control...and all buttons will implement interface "button" with function createComponentButton and Instant and Order buttons just implements this interface.... and they inherits some modules (modules like tomas knor's implementation - immediate pay)

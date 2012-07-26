@@ -151,30 +151,4 @@ class Order extends Button {
 	}
 
 
-    public function setShipping($shipping) {
-
-        $this->shipping = $shipping;
-        return $this;
-    }
-
-
-    public function setTax($tax) {
-
-        $this->tax = $tax;
-        return $this;
-    }
-
-
-    public function setInvoiceValue($value) {
-
-        $this->api->invoiceValue = $value;
-        return $this;
-    }
-
-
-    public function addItemToCart($name, $description, $price, $quantity = 1) {
-
-        $this->api->addItem($name, $description, $price, $quantity);
-    }
-
 };

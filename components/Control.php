@@ -143,4 +143,31 @@ public $shipping;
 		return $this;
 	}
 
+
+    public function setShipping($shipping) {
+
+        $this->shipping = (float) $shipping;
+        return $this;
+    }
+
+
+    public function setTax($tax) {
+
+        $this->tax = (float) $tax;
+        return $this;
+    }
+
+
+    public function setInvoiceValue($value) {
+
+        $this->api->invoiceValue = $value;
+        return $this;
+    }
+
+
+    public function addItemToCart($name, $description, $price, $quantity = 1) {
+
+        $this->api->addItem($name, $description, $price, $quantity);
+    }
+
 };
