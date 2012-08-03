@@ -1,12 +1,4 @@
 NEW API
-
-PayPal\Control - provide moust of functions for communication with paypal API; it's possible to set shipping and tax here.... and to add items to cart
-
-PayPal\Components\Button -> abstract class for buttons
->>> PayPal\Components\Buttons\Instant
->>> PayPal\Components\Buttons\Order
-
-
 PayPal\Components\ .... -> Other components -> but it's a subclass of Control
 
 

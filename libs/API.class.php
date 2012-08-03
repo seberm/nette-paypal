@@ -1,6 +1,6 @@
 <?php
 /**
- * @class PayPal\API
+ * @class API
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 

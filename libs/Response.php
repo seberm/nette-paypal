@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @class PayPal\Response
+ * @class Response
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 

@@ -1,13 +1,14 @@
 <?php
 
 /**
- * @class PayPal\Request
+ * @class Utils
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
 namespace PayPal;
 
 final class Utils {
+
 
     public static function translateKeys(array $data, $translationTable = array(), $method = 'strtolower') {
 
