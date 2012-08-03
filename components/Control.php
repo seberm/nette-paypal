@@ -1,6 +1,6 @@
 <?php
 /**
- * @class PayPalButton (Nette 2.0 Component)
+ * @class Control (Nette 2.0 Component)
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
@@ -24,6 +24,7 @@ class Control extends Nette\Application\UI\Control {
      * @todo Rename it to paymentAction
      */
 	public $paymentType;
+
 public $amount;
 public $tax;
 public $shipping;
@@ -39,7 +40,7 @@ public $shipping;
 	protected $translator = NULL;
 
     /**
-     * Handlers
+     * Basic handlers
      * Every component should have these three basic callbacks.
      * onSuccessPayment - is called if payment transaction is ok
      * onCancel - called when user cancels his payment
@@ -118,7 +119,7 @@ public $shipping;
 
 
     /**
-     * @todo Does have every paypal component amount option?
+     * @todo Should have every paypal component amount option?
      */
 	public function setAmount($amount) {
 

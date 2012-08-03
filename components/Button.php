@@ -61,4 +61,4 @@ public function renderBuy() {
      */
     abstract public function initPayment(Form $button);
 
-};
+}
