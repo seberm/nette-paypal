@@ -60,24 +60,24 @@ class Response extends Object {
        'INSURANCEAMT' => 'insuranceAmount',
        'SHIPDISCAMT' => 'shipDiscauntAmount',
 
-       /** @todo Request */
+       /** @todo Request items in paypal response */
         /*
        'PAYMENTREQUEST_0_CURRENCYCODE' => 'requestCurrencyCode',
-       'PAYMENTREQUEST_0_AMT' => '',
-       'PAYMENTREQUEST_0_SHIPPINGAMT' => 
-       'PAYMENTREQUEST_0_HANDLINGAMT' => 
-       'PAYMENTREQUEST_0_TAXAMT' => 
-       'PAYMENTREQUEST_0_INSURANCEAMT' => 
-       'PAYMENTREQUEST_0_SHIPDISCAMT' => 
-       'PAYMENTREQUEST_0_INSURANCEOPTIONOFFERED' =>
-       'PAYMENTREQUEST_0_SHIPTONAME' => 
-       'PAYMENTREQUEST_0_SHIPTOSTREET' => 
-       'PAYMENTREQUEST_0_SHIPTOCITY' => 
-       'PAYMENTREQUEST_0_SHIPTOSTATE' => 
-       'PAYMENTREQUEST_0_SHIPTOZIP' => 
-       'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE' => 
-       'PAYMENTREQUEST_0_SHIPTOCOUNTRYNAME' => 
-       'PAYMENTREQUESTINFO_0_ERRORCODE' => 
+       'PAYMENTREQUEST_0_AMT' => 'requestAmount',
+       'PAYMENTREQUEST_0_SHIPPINGAMT' =>  'requestShipping',
+       'PAYMENTREQUEST_0_HANDLINGAMT' =>  'requestHandling',
+       'PAYMENTREQUEST_0_TAXAMT' =>  'requestTax',
+       'PAYMENTREQUEST_0_INSURANCEAMT' => 'requestInsurance',
+       'PAYMENTREQUEST_0_SHIPDISCAMT' => 'requestShippingDiscaunt',
+       'PAYMENTREQUEST_0_INSURANCEOPTIONOFFERED' => 'requestInsuranceOptionOffered',
+       'PAYMENTREQUEST_0_SHIPTONAME' => 'requestShipToName',
+       'PAYMENTREQUEST_0_SHIPTOSTREET' => 'requestShipToStreet',
+       'PAYMENTREQUEST_0_SHIPTOCITY' => 'requestShipToCity',
+       'PAYMENTREQUEST_0_SHIPTOSTATE' => 'requestShipToState',
+       'PAYMENTREQUEST_0_SHIPTOZIP' => 'requestShipToZip',
+       'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE' => 'requestShipToCountryCode',
+       'PAYMENTREQUEST_0_SHIPTOCOUNTRYNAME' => 'requestShipToCountryName',
+       'PAYMENTREQUESTINFO_0_ERRORCODE' => 'infoErrorCode',
         */
        'PAYMENTINFO_0_TRANSACTIONTYPE' => 'transactionType',
        'PAYMENTINFO_0_PAYMENTTYPE' => 'paymentType',
@@ -118,12 +118,11 @@ class Response extends Object {
             return ArrayHash::from($this->responseData);
     }
 
+
     public function setResponseData($arr) {
 
         $this->responseData = $arr;
     }
-
-
 
 
     /**

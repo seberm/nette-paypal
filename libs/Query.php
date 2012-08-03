@@ -79,15 +79,15 @@ class Query extends Object {
 
     public function appendQuery($query, $val = NULL) {
 
-        /*
-        if ($query instanceof Query) {
+        if ($query instanceof Query)
+            $this->query = array_merge($query->getData(), $this->query);
 
-        }
-        */
         if (isset($val))
             $this->query[$query] = $val;
         elseif (is_array($query))
             $this->query = array_merge($query, $this->query);
+
+        return $this;
     }
 
 
