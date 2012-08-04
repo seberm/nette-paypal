@@ -24,7 +24,7 @@ class Instant extends Button {
 
 		parent::__construct($parent, $name);
 
-        $this->paymentType = 'Sale';
+        //$this->paymentType = 'Sale';
 	}
 
 

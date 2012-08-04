@@ -23,7 +23,7 @@ class Control extends Nette\Application\UI\Control {
     /**
      * @todo Rename it to paymentAction
      */
-	public $paymentType;
+	public $paymentType = 'Sale'; // Default will be sale
 
 public $amount;
 public $tax;
