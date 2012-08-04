@@ -35,22 +35,6 @@ class Instant extends Button {
 	}
 
 
-	protected function createComponentPaypalBuyForm() {
-
-		$form = new Form;
-
-		if ($this->translator) {
-			$form->setTranslator($this->translator);
-		}
-
-		$form->addImage('paypalCheckOut', self::PAYPAL_BUTTON_IMAGE, 'Check out with PayPal');
-
-		$form->onSuccess[] = callback($this, 'initPayment');
-
-		return $form;
-	}
-
-
 	public function initPayment(Form $paypalBuyForm) {
 
 		$response = $this->api->doExpressCheckout($this->amount,

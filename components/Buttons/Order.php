@@ -29,17 +29,6 @@ class Order extends Button {
 
 
     /**
-     * Create a basic button
-     */
-	protected function createComponentPaypalBuyForm() {
-
-		$button = $this->createComponentButton();
-
-        return $button;
-	}
-
-
-    /**
      * @override
      */
 	public function initPayment(Form $button) {
@@ -53,6 +42,7 @@ class Order extends Button {
                                        $this->presenter->session->getSection('paypal'));
 
 		if ($response->error) {
+
 			$this->onError($response->errors);
 			return;
 		}
