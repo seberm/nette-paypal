@@ -7,7 +7,7 @@
 namespace PayPal\Components;
 
 use \PayPal,
-    PayPal\API;
+    PayPal\API\API;
 
 use \Nette,
     Nette\Application\UI\Form;

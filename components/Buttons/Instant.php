@@ -43,7 +43,7 @@ class Instant extends Button {
 			$form->setTranslator($this->translator);
 		}
 
-		$form->addImage('paypalCheckOut', self::PAYPAL_IMAGE, 'Check out with PayPal');
+		$form->addImage('paypalCheckOut', self::PAYPAL_BUTTON_IMAGE, 'Check out with PayPal');
 
 		$form->onSuccess[] = callback($this, 'initPayment');
 

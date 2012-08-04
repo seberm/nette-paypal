@@ -7,8 +7,7 @@
 
 namespace PayPal\API;
 
-use \PayPal,
-    PayPal\Query;
+use \PayPal;
 
 use \Nette;
 use Nette\Object,

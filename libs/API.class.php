@@ -6,9 +6,7 @@
 
 namespace PayPal\API;
 
-use \PayPal,
-    PayPal\Response,
-    PayPal\Request;
+use \PayPal;
 
 use \Nette;
 use Nette\Utils\Arrays,

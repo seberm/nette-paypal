@@ -33,7 +33,7 @@ class Order extends Button {
      */
 	protected function createComponentPaypalBuyForm() {
 
-		$button = $this->createComponenButton();
+		$button = $this->createComponentButton();
 
         return $button;
 	}

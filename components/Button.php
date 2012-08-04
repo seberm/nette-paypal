@@ -4,11 +4,11 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\Components\Button;
+namespace PayPal\Components;
 
 
 use \PayPal,
-    PayPal\API,
+    PayPal\API\API,
     PayPal\Components\Control;
 
 use \Nette,
@@ -29,7 +29,7 @@ abstract class Button extends Control {
 
 public function renderBuy() {
 
-    $this->template->setFile(__DIR__ . '/../templates/buy.latte')
+    $this->template->setFile(__DIR__ . '/templates/buy.latte')
          ->render();
 }
 
