@@ -2,6 +2,11 @@
 /**
  * @class API
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
+ *
+ * @todo Optimalize problem with session which is necessary in setExpressCheckout ...and others
+ *       It will be possible to set session namespace to this module.
+ *
+ *       Change it but keep API interface!
  */
 
 namespace PayPal\API;
@@ -335,11 +340,9 @@ class API extends Object {
     }
 
 
-
-
     public function setSignature($signature) {
 
-        return $this->setData('signature', (string)$signature);
+        return $this->setData('signature', (string) $signature);
     }
 
 
@@ -351,7 +354,7 @@ class API extends Object {
 
     public function setPassword($password) {
 
-        return $this->setData('password', (string)$password);
+        return $this->setData('password', (string) $password);
     }
 
 
@@ -369,7 +372,7 @@ class API extends Object {
 
     public function setUsername($username) {
 
-        return $this->setData('username', (string)$username);
+        return $this->setData('username', (string) $username);
     }
 
 
@@ -381,7 +384,7 @@ class API extends Object {
 
     public function setPort($proxyPort) {
 
-        $this->data['proxyPort'] = (int)$proxyPort;
+        $this->data['proxyPort'] = (int) $proxyPort;
         return $this;
     }
 
@@ -393,7 +396,7 @@ class API extends Object {
 
     public function setHost($proxyHost) {
 
-        return $this->setData('proxyHost', (string)$proxyHost);
+        return $this->setData('proxyHost', (string) $proxyHost);
     }
 
 
