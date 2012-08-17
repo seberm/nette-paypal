@@ -7,72 +7,81 @@
 
 namespace PayPal\API;
 
-use \PayPal;
+use PayPal;
 
-use \Nette;
+use Nette;
 use Nette\Object,
-    Nette\ArrayHash;
+	Nette\ArrayHash;
 
 
-class Request extends Object {
+class Request extends Object
+{
 
-    private $query = NULL;
-
-
-
-    public function __construct($query = NULL) {
-
-        $this->setQuery($query);
-    }
+	private $query = NULL;
 
 
-    public function setQuery($query) {
 
-        if ($query instanceof Query)
-            $this->query = $query;
-        else {
-
-            if (is_array($query))
-                $this->query = new Query($query);
-            else $this->query = new Query((array) $query);
-        }
-
-        return $this;
-    }
+	public function __construct($query = NULL)
+	{
+		$this->setQuery($query);
+	}
 
 
-    public function getQuery($key = NULL, $default = NULL) {
 
-        if (func_num_args() === 0)
-            return $this->query;
+	public function setQuery($query)
+	{
+		if ($query instanceof Query) {
+			$this->query = $query;
 
-        if ($this->query->has($key))
-            return $this->query->data->$key;
+		} else {
+			if (is_array($query)) {
+				$this->query = new Query($query);
 
-        return $default;
-    }
+			} else {
+				$this->query = new Query((array)$query);
+			}
+		}
 
-
-    public function addQuery($query) {
-
-        $this->query->appendQuery((array) $query);
-
-        return $this;
-    }
-
-
-    public function setMethod($method) {
-
-        $this->addQuery(array(
-            'method' => $method,
-        ));
-
-        return $this;
-    }
+		return $this;
+	}
 
 
-    public function __toString() {
 
-        return $this->query->build();
-    }
+	public function getQuery($key = NULL, $default = NULL)
+	{
+		if (func_num_args() === 0) {
+			return $this->query;
+		}
+
+		if ($this->query->has($key)) {
+			return $this->query->data->$key;
+		}
+
+		return $default;
+	}
+
+
+
+	public function addQuery($query)
+	{
+		$this->query->appendQuery((array)$query);
+		return $this;
+	}
+
+
+
+	public function setMethod($method)
+	{
+		$this->addQuery(array(
+			'method' => $method,
+		));
+		return $this;
+	}
+
+
+
+	public function __toString()
+	{
+		return $this->query->build();
+	}
 }
