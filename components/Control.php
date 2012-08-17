@@ -39,6 +39,9 @@ public $shipping;
 	 */
 	protected $translator = NULL;
 
+    protected $session = NULL;
+    
+
     /**
      * Basic handlers
      * Every component should have these three basic callbacks.
@@ -57,6 +60,15 @@ public $shipping;
 
 		$this->api = new API;
 	}
+
+
+    protected function attached($presenter) {
+
+        if ($presenter instanceof \Nette\Application\UI\Presenter)
+            $this->session = $this->presenter->session->getSection('paypal');
+
+        parent::attached($presenter);
+    }
 
 
 	public function setTranslator(Nette\Localization\ITranslator $translator) {

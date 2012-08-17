@@ -18,21 +18,6 @@ use \Nette,
 
 class InstantPay extends Control {
 
-    protected $session;
-    
-    
-    /**
-     * @author Martin Knor
-     * @todo Is this necessary?
-     */
-    protected function attached($presenter) {
-
-        if ($presenter instanceof \Nette\Application\UI\Presenter)
-            $this->session = $this->presenter->session->getSection('paypal');
-
-        parent::attached($presenter);
-    }
-
 
     public function initPayment($amount, $description = NULL) {
 

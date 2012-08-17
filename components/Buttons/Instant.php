@@ -43,7 +43,7 @@ class Instant extends Button {
                                                 $this->paymentType,
                                                 $this->buildUrl('processBuy'),
                                                 $this->buildUrl('cancel'),
-                                                $this->presenter->session->getSection('paypal'));
+                                                $this->session);
 
 		if ($response->error) {
 
@@ -75,7 +75,7 @@ class Instant extends Button {
 
 		$response = $this->api->doPayment(
 			$this->paymentType,
-			$this->presenter->session->getSection('paypal')
+			$this->session
 		);
 
 
@@ -91,7 +91,7 @@ class Instant extends Button {
 
 	public function handleProcessBuy() {
 
-		$response = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
+		$response = $this->api->getShippingDetails($this->session);
 
 		if ($response->error) {
             $this->onError($response->errors);
@@ -105,7 +105,7 @@ class Instant extends Button {
 
 	public function handleCancel() {
 
-		$response = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
+		$response = $this->api->getShippingDetails($this->session);
 
 		if ($response->error) {
             $this->onError($response->errors);
