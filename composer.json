@@ -1,14 +1,14 @@
 {
-	"name": "nette/paypal",
-	"description": "PayPal basic API written in Nette",
-	"keywords": ["api", "paypal", "nette", "payments"],
-	"homepage": "https://github.com/seberm/nette-paypal",
-	"license": ["GPLv2", "GPLv3"],
-	"authors": [
-		{
-			"name": "Otto Šabart",
-			"homepage": "http://seberm.com",
-            "email": "seberm@gmail.com"
-		}
-	]
+    "name":"nette/paypal",
+    "description":"PayPal basic API written in Nette",
+    "keywords":["api", "paypal", "nette", "payments"],
+    "homepage":"https://github.com/seberm/nette-paypal",
+    "license":["GPLv2", "GPLv3"],
+    "authors":[
+        {
+            "name":"Otto Šabart",
+            "homepage":"http://seberm.com",
+            "email":"seberm@gmail.com"
+        }
+    ]
 }

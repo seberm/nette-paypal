@@ -6,47 +6,50 @@
 
 namespace PayPal\Components\Buttons;
 
-use \PayPal;
+use PayPal;
 use PayPal\Components\Button;
 
-use \Nette,
-    Nette\Application\UI\Form;
+use Nette,
+	Nette\Application\UI\Form;
 
 
-class Instant extends Button {
+class Instant extends Button
+{
 
-    public $onSuccessBuy;
+	public $onSuccessBuy;
 
 	public $payImage = 'https://www.paypalobjects.com/en_US/i/btn/x-click-but3.gif';
 
 
-	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL) {
 
+	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
+	{
 		parent::__construct($parent, $name);
-
-        //$this->paymentType = 'Sale';
+		//$this->paymentType = 'Sale';
 	}
 
 
-	public function renderPay() {
 
-		$this->template->setFile(__DIR__ . '/../templates/pay.latte')
-			 ->render();
+	public function renderPay()
+	{
+		$this->template
+			->setFile(__DIR__ . '/../templates/pay.latte')
+			->render();
 	}
 
 
-	public function initPayment(Form $paypalBuyForm) {
 
+	public function initPayment(Form $paypalBuyForm)
+	{
 		$response = $this->api->doExpressCheckout($this->amount,
-						null,
-                                                $this->currencyCode,
-                                                $this->paymentType,
-                                                $this->buildUrl('processBuy'),
-                                                $this->buildUrl('cancel'),
-                                                $this->session);
+			null,
+			$this->currencyCode,
+			$this->paymentType,
+			$this->buildUrl('processBuy'),
+			$this->buildUrl('cancel'),
+			$this->session);
 
 		if ($response->error) {
-
 			$this->onError($response->errors);
 			return;
 		}
@@ -55,8 +58,9 @@ class Instant extends Button {
 	}
 
 
-	protected function createComponentPaypalPayForm() {
 
+	protected function createComponentPaypalPayForm()
+	{
 		$form = new Form;
 
 		if ($this->translator) {
@@ -64,20 +68,19 @@ class Instant extends Button {
 		}
 
 		$form->addImage('paypalPay', $this->payImage, 'Pay with PayPal');
-
 		$form->onSuccess[] = callback($this, 'processPayment');
 
 		return $form;
 	}
 
 
-	public function processPayment(Form $form) {
 
+	public function processPayment(Form $form)
+	{
 		$response = $this->api->doPayment(
 			$this->paymentType,
 			$this->session
 		);
-
 
 		if ($response->error) {
 			$this->onError($response->errors);
@@ -89,12 +92,13 @@ class Instant extends Button {
 	}
 
 
-	public function handleProcessBuy() {
 
+	public function handleProcessBuy()
+	{
 		$response = $this->api->getShippingDetails($this->session);
 
 		if ($response->error) {
-            $this->onError($response->errors);
+			$this->onError($response->errors);
 			return;
 		}
 
@@ -103,12 +107,13 @@ class Instant extends Button {
 	}
 
 
-	public function handleCancel() {
 
+	public function handleCancel()
+	{
 		$response = $this->api->getShippingDetails($this->session);
 
 		if ($response->error) {
-            $this->onError($response->errors);
+			$this->onError($response->errors);
 			return;
 		}
 
