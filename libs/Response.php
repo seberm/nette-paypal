@@ -34,7 +34,7 @@ class Response extends Object
 		'l_itemheightvalue',
 	);
 
-	// Contents only items which we want to normalize
+	// Contents items which we want to normalize
 	private $translationTable = array(
 		'CHECKOUTSTATUS' => 'checkoutStatus',
 		'CORRELATIONID' => 'correlationID',
@@ -53,14 +53,12 @@ class Response extends Object
 		'ADDRESSSTATUS' => 'addressStatus',
 		'CURRENCYCODE' => 'currencyCode',
 		'AMT' => 'amount',
+        'ITEMAMT' => 'itemsTotalAmount',
 		'SHIPPINGAMT' => 'shippingAmount',
 		'HANDLINGAMT' => 'handlingAmount',
 		'TAXAMT' => 'taxAmount',
 		'INSURANCEAMT' => 'insuranceAmount',
 		'SHIPDISCAMT' => 'shipDiscauntAmount',
-
-		/** @todo Request items in paypal response */
-		/*
 		'PAYMENTREQUEST_0_CURRENCYCODE' => 'requestCurrencyCode',
 		'PAYMENTREQUEST_0_AMT' => 'requestAmount',
 		'PAYMENTREQUEST_0_SHIPPINGAMT' =>  'requestShipping',
@@ -77,7 +75,6 @@ class Response extends Object
 		'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE' => 'requestShipToCountryCode',
 		'PAYMENTREQUEST_0_SHIPTOCOUNTRYNAME' => 'requestShipToCountryName',
 		'PAYMENTREQUESTINFO_0_ERRORCODE' => 'infoErrorCode',
-		*/
 		'PAYMENTINFO_0_TRANSACTIONTYPE' => 'transactionType',
 		'PAYMENTINFO_0_PAYMENTTYPE' => 'paymentType',
 		/*
