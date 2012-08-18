@@ -44,7 +44,7 @@ class Order extends Button
 			$this->paymentType,
 			$this->buildUrl('confirmation'),
 			$this->buildUrl('cancel'),
-			$this->presenter->session->getSection('paypal'));
+			$this->session);
 
 		if ($response->error) {
 
@@ -61,7 +61,7 @@ class Order extends Button
 	public function handleConfirmation()
 	{
 
-		$response = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
+		$response = $this->api->getShippingDetails($this->session);
 
 		if ($response->error) {
 
@@ -80,7 +80,7 @@ public function processPayment(Form $form) {
 
    $data = $this->api->doPayment(
 	   $this->paymentType,
-	   $this->presenter->session->getSection('paypal')
+       $this->session
    );
 
 
@@ -95,20 +95,20 @@ public function processPayment(Form $form) {
 */
 
 
-	public function confirmExpressCheckout(Nette\Http\SessionSection $section)
+	public function confirmExpressCheckout()
 	{
 
 		// We have to get data before confirmation!
 		// It's because the PayPal token destroyed after payment confirmation
 		// (Session section is destroyed)
-		$responseDetails = $this->api->getShippingDetails($section);
+		$responseDetails = $this->api->getShippingDetails($this->session);
 		if ($responseDetails->error) {
 
 			$this->onError($responseDetails->errors);
 			return;
 		}
 
-		$responseConfirm = $this->api->confirmExpressCheckout($section);
+		$responseConfirm = $this->api->confirmExpressCheckout($this->session);
 
 		if ($responseConfirm->error) {
 			$this->onError($responseConfirm->errors);
@@ -124,7 +124,7 @@ public function processPayment(Form $form) {
 	/*
 public function handleProcessBuy() {
 
-	$data = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
+	$data = $this->api->getShippingDetails($this->session);
 
 	if ($this->api->error) {
 		$this->onError($this->api->errors);
@@ -140,7 +140,7 @@ public function handleProcessBuy() {
 	public function handleCancel()
 	{
 
-		$response = $this->api->getShippingDetails($this->presenter->session->getSection('paypal'));
+		$response = $this->api->getShippingDetails($this->session);
 
 		if ($response->error) {
 			$this->onError($response->errors);

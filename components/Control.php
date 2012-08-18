@@ -67,11 +67,16 @@ class Control extends Nette\Application\UI\Control
 	}
 
 
+    public function setSessionSection(Nette\Http\SessionSection $section) {
+
+        $this->session = $section;
+    }
+
 
 	protected function attached($presenter)
 	{
 		if ($presenter instanceof \Nette\Application\UI\Presenter) {
-			$this->session = $this->presenter->session->getSection('paypal');
+			$this->setSessionSection($this->presenter->session->getSection('paypal'));
 		}
 
 		parent::attached($presenter);
@@ -116,9 +121,9 @@ class Control extends Nette\Application\UI\Control
 
 
 
-	public function getShippingDetails(Nette\Http\SessionSection $section)
+	public function getShippingDetails()
 	{
-		return $this->api->getShippingDetails($section);
+		return $this->api->getShippingDetails($this->session);
 	}
 
 
