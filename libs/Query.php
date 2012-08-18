@@ -16,28 +16,17 @@ use Nette\Object,
 class Query extends Object
 {
 
-	private $query;
-
-	private $translationTable = array(
-		'paymentAction' => 'PAYMENTREQUEST_0_PAYMENTACTION',
-		'returnUrl' => 'RETURNURL',
-		'cancelUrl' => 'CANCELURL',
-		'currencyCode' => 'PAYMENTREQUEST_0_CURRENCYCODE',
-		'itemsAmount' => 'PAYMENTREQUEST_0_ITEMAMT',
-		'taxAmount' => 'PAYMENTREQUEST_0_TAXAMT',
-		'shippingAmount' => 'PAYMENTREQUEST_0_SHIPPINGAMT',
-		'amount' => 'PAYMENTREQUEST_0_AMT',
-		'password' => 'PWD',
-		'payerID' => 'PAYERID',
-		'ipAdress' => 'IPADDRESS',
-		'allowedPaymentMethod' => 'PAYMENTREQUEST_0_ALLOWEDPAYMENTMETHOD',
-	);
-
+	private $query = '';
+   
+    /**
+     * @var $translationTable It's possible to specify translation table for query keys
+     */
+    public $translationTable = array();
 
 
 	public function __construct(array $query)
 	{
-		$this->query = $query; //Utils::translateKeys($query, $this->translationTable);
+		$this->query = $query;
 	}
 
 
@@ -104,15 +93,15 @@ class Query extends Object
 
 
 	/**
-	 * Builds basic query to paypal.
+     * Builds basic query to paypal.
+     *
 	 * @return string query
 	 */
 	public function build()
 	{
-		//foreach ($data as $key => $value)
-		//$data[$key] = urlencode($value);
+        $query = Utils::translateKeys($this->query, $this->translationTable, 'strtoupper');
 
-		return http_build_query(Utils::translateKeys($this->query, $this->translationTable, 'strtoupper'), '', '&');
+		return http_build_query($query, '', '&');
 	}
 
 

@@ -13,6 +13,12 @@ final class Utils
 
 	public static function translateKeys(array $data, $translationTable = array(), $method = 'strtolower')
 	{
+
+        // If there are no translation items in
+        // translation table we just return untranslated data
+        if (empty($translationTable))
+            return $data;
+
 		$translated = array();
 
 		foreach ($data as $key => $value) {

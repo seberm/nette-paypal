@@ -16,6 +16,20 @@ class Request extends Object
 
 	private $query = NULL;
 
+	public $translationTable = array(
+		'paymentAction' => 'PAYMENTREQUEST_0_PAYMENTACTION',
+		'returnUrl' => 'RETURNURL',
+		'cancelUrl' => 'CANCELURL',
+		'currencyCode' => 'PAYMENTREQUEST_0_CURRENCYCODE',
+		'itemsAmount' => 'PAYMENTREQUEST_0_ITEMAMT',
+		'taxAmount' => 'PAYMENTREQUEST_0_TAXAMT',
+		'shippingAmount' => 'PAYMENTREQUEST_0_SHIPPINGAMT',
+		'amount' => 'PAYMENTREQUEST_0_AMT',
+		'password' => 'PWD',
+		'payerID' => 'PAYERID',
+		'ipAdress' => 'IPADDRESS',
+		'allowedPaymentMethod' => 'PAYMENTREQUEST_0_ALLOWEDPAYMENTMETHOD',
+	);
 
 
 	public function __construct($query = NULL)
@@ -38,6 +52,8 @@ class Request extends Object
 				$this->query = new Query((array)$query);
 			}
 		}
+
+        $this->query->translationTable = $this->translationTable;
 
 		return $this;
 	}
