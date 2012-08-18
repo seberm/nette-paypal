@@ -1,18 +1,16 @@
 <?php
 /**
- * @class PayPalButton (Nette 2.0 Component)
+ * @class Button (Nette 2.0 Component)
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
 namespace PayPal\Components;
 
 
-use PayPal,
-	PayPal\API\API,
+use PayPal\API\API,
 	PayPal\Components\Control;
 
-use Nette,
-	Nette\Application\UI\Form;
+use Nette\Application\UI\Form;
 
 
 abstract class Button extends Control
@@ -26,15 +24,15 @@ abstract class Button extends Control
 
 	// Handlers
 	// Here it's possible to add some special handlers
+    // ...
 
 
 	public function renderBuy()
 	{
 		$this->template
-			->setFile(__DIR__ . '/templates/buy.latte')
-			->render();
+			 ->setFile(__DIR__ . '/templates/buy.latte')
+			 ->render();
 	}
-
 
 
 	/**
@@ -56,7 +54,6 @@ abstract class Button extends Control
 
 		return $form;
 	}
-
 
 
 	/**

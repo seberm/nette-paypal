@@ -1,6 +1,6 @@
 <?php
 /**
- * @class PayPalButton (Nette 2.0 Component)
+ * @class Order (Nette 2.0 Component)
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
@@ -10,7 +10,7 @@ use \PayPal;
 use PayPal\Components\Button;
 
 use \Nette,
-Nette\Application\UI\Form;
+    Nette\Application\UI\Form;
 
 
 class Order extends Button
@@ -19,7 +19,6 @@ class Order extends Button
 
 	// Handlers
 	public $onConfirmation;
-
 
 
 	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
@@ -31,10 +30,6 @@ class Order extends Button
 	}
 
 
-
-	/**
-	 * @override
-	 */
 	public function initPayment(Form $button)
 	{
 
@@ -74,27 +69,6 @@ class Order extends Button
 	}
 
 
-
-	/*
-public function processPayment(Form $form) {
-
-   $data = $this->api->doPayment(
-	   $this->paymentType,
-       $this->session
-   );
-
-
-   if ($this->api->error) {
-	   $this->onError($this->api->errors);
-	   return;
-   }
-
-   // Callback
-   $this->onSuccessBuy($data);
-}
-*/
-
-
 	public function confirmExpressCheckout()
 	{
 
@@ -120,23 +94,6 @@ public function processPayment(Form $form) {
 	}
 
 
-
-	/*
-public function handleProcessBuy() {
-
-	$data = $this->api->getShippingDetails($this->session);
-
-	if ($this->api->error) {
-		$this->onError($this->api->errors);
-		return;
-	}
-
-	// Callback
-	$this->onSuccessBuy($data);
-}
-*/
-
-
 	public function handleCancel()
 	{
 
@@ -150,7 +107,4 @@ public function handleProcessBuy() {
 		// Callback
 		$this->onCancel($response);
 	}
-
 }
-
-;

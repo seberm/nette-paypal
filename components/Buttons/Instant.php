@@ -1,6 +1,6 @@
 <?php
 /**
- * @class ButtonInstant (Nette 2.0 Component)
+ * @class Instant (Nette 2.0 Component)
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
@@ -21,15 +21,6 @@ class Instant extends Button
 	public $payImage = 'https://www.paypalobjects.com/en_US/i/btn/x-click-but3.gif';
 
 
-
-	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
-	{
-		parent::__construct($parent, $name);
-		//$this->paymentType = 'Sale';
-	}
-
-
-
 	public function renderPay()
 	{
 		$this->template
@@ -42,7 +33,7 @@ class Instant extends Button
 	public function initPayment(Form $paypalBuyForm)
 	{
 		$response = $this->api->doExpressCheckout($this->amount,
-			null,
+			NULL,
 			$this->currencyCode,
 			$this->paymentType,
 			$this->buildUrl('processBuy'),

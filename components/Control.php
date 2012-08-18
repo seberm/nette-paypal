@@ -12,6 +12,7 @@ use PayPal,
 use Nette,
 	Nette\Application\UI\Form;
 
+
 class Control extends Nette\Application\UI\Control
 {
 
@@ -24,13 +25,11 @@ class Control extends Nette\Application\UI\Control
 	/**
 	 * @todo Rename it to paymentAction
 	 */
-	public $paymentType = 'Sale'; // Default will be sale
-
+	public $paymentType = 'Sale';
 	public $amount;
-
 	public $tax;
-
 	public $shipping;
+
 
 	/**
 	 * @var API
@@ -42,6 +41,9 @@ class Control extends Nette\Application\UI\Control
 	 */
 	protected $translator = NULL;
 
+    /**
+     * @var Nette\Http\SessionSection
+     */
 	protected $session = NULL;
 
 
@@ -53,11 +55,8 @@ class Control extends Nette\Application\UI\Control
 	 * onError - called if some error during the transaction occoure
 	 */
 	public $onSuccessPayment;
-
 	public $onCancel;
-
 	public $onError;
-
 
 
 	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
@@ -67,6 +66,10 @@ class Control extends Nette\Application\UI\Control
 	}
 
 
+    /**
+     * If presenter is not attached it's possible
+     * to set session section with this function.
+     */
     public function setSessionSection(Nette\Http\SessionSection $section) {
 
         $this->session = $section;
@@ -125,7 +128,6 @@ class Control extends Nette\Application\UI\Control
 	{
 		return $this->api->getShippingDetails($this->session);
 	}
-
 
 
 	/**

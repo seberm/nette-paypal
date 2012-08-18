@@ -2,11 +2,6 @@
 /**
  * @class API
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
- *
- * @todo Optimalize problem with session which is necessary in setExpressCheckout ...and others
- *       It will be possible to set session namespace to this module.
- *
- *       Change it but keep API interface!
  */
 
 namespace PayPal\API;
@@ -24,7 +19,7 @@ class API extends Object
 {
 
 	/**
-	 * Tells which version of PayPay API we want use
+	 * Tells which version of PayPal API we want use
 	 */
 	const VERSION = '72.0';
 
@@ -37,30 +32,26 @@ class API extends Object
 	const PAYPAL_URL = 'https://www.paypal.com/cgi-bin/webscr';
 
 	/**
-	 * @todo Add more various currencies
+	 * @todo Add more currencies
 	 */
 	const CURRENCY_CROUND = 'CZK';
 	const CURRENCY_EURO = 'EUR';
 
-	/** @deprecated */
+	/** @deprecated ? */
 	private $cart = array();
 
 	// Options
 	private $data = array(
 		'proxyHost' => '127.0.0.1',
 		'proxyPort' => '808',
-		'username' => '',
-		'password' => '',
+		'username'  => '',
+		'password'  => '',
 		'signature' => '',
 	);
 
 	private $sandbox = false;
-
 	private $useProxy = false;
-
 	private $token;
-
-	//public $invoiceValue = NULL;
 
 
 
@@ -98,7 +89,7 @@ class API extends Object
 	/**
 	 * @param string $key
 	 *
-	 * @return array|null
+	 * @return array|NULL
 	 */
 	public function getData($key = NULL)
 	{
@@ -178,9 +169,6 @@ class API extends Object
 
 
 
-	/**
-	 * Prepares the parameters for the SetExpressCheckout API Call.
-	 */
 	public function doExpressCheckout($paymentAmount, $description, $currencyCodeType, $paymentType, $returnURL, $cancelURL, $ses)
 	{
 		$query = array(
@@ -262,7 +250,7 @@ class API extends Object
 	 */
 	public function doPayment($paymentType, $ses)
 	{
-		/** @todo This communication is not necessary! */
+		/** @todo This communication is not necessary - change implementation! */
 		$responseDetails = $this->getShippingDetails($ses);
 
 		$query = array(
@@ -272,7 +260,6 @@ class API extends Object
 			'amount' => $responseDetails->responseData->amount,
 			'currencyCode' => $responseDetails->responseData->currencyCode,
 			'method' => 'DoExpressCheckoutPayment',
-			//'PAYMENTREQUEST_0_ALLOWEDPAYMENTMETHOD' => 'InstantPaymentOnly'
 		);
 
 		return $this->call(new Request($query));
@@ -342,6 +329,7 @@ class API extends Object
 
 		$response = new Response($responseNVP);
 		Debugger::firelog($response);
+
 		return $response;
 	}
 
@@ -409,7 +397,7 @@ class API extends Object
 
 
 	/**
-	 * @return array|null
+	 * @return array|NULL
 	 */
 	public function getPassword()
 	{
@@ -419,7 +407,7 @@ class API extends Object
 
 
 	/**
-	 * @return array|null
+	 * @return array|NULL
 	 */
 	public function getUsername()
 	{
@@ -441,7 +429,7 @@ class API extends Object
 
 
 	/**
-	 * @return array|null
+	 * @return array|NULL
 	 */
 	public function getProxyPort()
 	{
@@ -464,7 +452,7 @@ class API extends Object
 
 
 	/**
-	 * @return array|null
+	 * @return array|NULL
 	 */
 	public function getProxyHost()
 	{
@@ -495,5 +483,4 @@ class API extends Object
 		$this->sandbox = (bool)$opt;
 		return $this;
 	}
-
 }
