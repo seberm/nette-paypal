@@ -7,8 +7,6 @@
 
 namespace PayPal\API;
 
-use PayPal;
-
 use Nette\Object,
 	Nette\ArrayHash;
 

@@ -6,11 +6,9 @@
 
 namespace PayPal\Components\Buttons;
 
-use PayPal;
 use PayPal\Components\Button;
 
-use Nette,
-	Nette\Application\UI\Form;
+use Nette\Application\UI\Form;
 
 
 class Instant extends Button

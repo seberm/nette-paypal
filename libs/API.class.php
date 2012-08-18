@@ -6,8 +6,6 @@
 
 namespace PayPal\API;
 
-use PayPal;
-use Nette;
 use Nette\Utils\Arrays,
 	Nette\Object,
 	Nette\Http\SessionSection,

@@ -7,13 +7,9 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\Controls;
+namespace PayPal\Components;
 
-use PayPal,
-	PayPal\Components\Control;
-
-use Nette,
-	Nette\Application\UI\Form;
+use Nette\Application\UI\Form;
 
 
 class InstantPay extends Control
