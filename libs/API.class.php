@@ -6,11 +6,10 @@
 
 namespace PayPal\API;
 
-use Nette\Utils\Arrays,
-	Nette\Object,
-	Nette\Http\SessionSection,
-	Nette\Diagnostics\Debugger,
-	Nette\Http\Url;
+use Nette\Object,
+    Nette\Http\SessionSection,
+    Nette\Diagnostics\Debugger,
+    Nette\Http\Url;
 
 
 class API extends Object

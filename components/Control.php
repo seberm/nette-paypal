@@ -6,11 +6,9 @@
 
 namespace PayPal\Components;
 
-use PayPal,
-	PayPal\API\API;
+use PayPal\API\API;
 
-use Nette,
-	Nette\Application\UI\Form;
+use Nette;
 
 
 class Control extends Nette\Application\UI\Control
@@ -41,9 +39,9 @@ class Control extends Nette\Application\UI\Control
 	 */
 	protected $translator = NULL;
 
-    /**
-     * @var Nette\Http\SessionSection
-     */
+        /**
+        * @var Nette\Http\SessionSection
+        */
 	protected $session = NULL;
 
 
@@ -66,14 +64,14 @@ class Control extends Nette\Application\UI\Control
 	}
 
 
-    /**
-     * If presenter is not attached it's possible
-     * to set session section with this function.
-     */
-    public function setSessionSection(Nette\Http\SessionSection $section) {
-
-        $this->session = $section;
-    }
+        /**
+         * If presenter is not attached it's possible
+         * to set session section with this function.
+         */
+        public function setSessionSection(Nette\Http\SessionSection $section)
+        {
+            $this->session = $section;
+        }
 
 
 	protected function attached($presenter)

@@ -7,8 +7,7 @@
 
 namespace PayPal\API;
 
-use Nette\Object,
-	Nette\ArrayHash;
+use Nette\Object;
 
 
 class Request extends Object

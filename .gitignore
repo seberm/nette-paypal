@@ -1,7 +1,6 @@
 ### Global gitingore ###
 
 # NetBeans
-nbproject/*
 build/
 nbbuild/
 dist/

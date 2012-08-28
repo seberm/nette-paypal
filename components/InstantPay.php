@@ -9,8 +9,6 @@
 
 namespace PayPal\Components;
 
-use Nette\Application\UI\Form;
-
 
 class InstantPay extends Control
 {
@@ -32,20 +30,20 @@ class InstantPay extends Control
 
 	public function handleProcessPay()
 	{
-		$response = $this->getShippingDetails();
+		$responseDetails = $this->getShippingDetails();
 
-		if ($response->error) {
-			$this->onError($response->errors);
+		if ($responseDetails->error) {
+			$this->onError($responseDetails->errors);
 			return;
 		}
 
-		$response = $this->api->doPayment($this->paymentType, $this->session);
-		if ($response->error) {
-			$this->onError($response->errors);
+		$responsePay = $this->api->doPayment($this->paymentType, $this->session);
+		if ($responsePay->error) {
+			$this->onError($responsePay->errors);
 			return;
 		}
 
-		$this->onSuccessPayment($response->responseData);
+		$this->onSuccessPayment($responseDetails->responseData);
 	}
 
 

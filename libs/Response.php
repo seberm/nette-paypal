@@ -7,8 +7,7 @@
 
 namespace PayPal\API;
 
-use PayPal,
-	PayPal\Utils;
+use PayPal\Utils;
 
 use Nette;
 use Nette\Object,
@@ -52,8 +51,8 @@ class Response extends Object
 		'SHIPTOCOUNTRYNAME' => 'shipToCountryName',
 		'ADDRESSSTATUS' => 'addressStatus',
 		'CURRENCYCODE' => 'currencyCode',
-		'AMT' => 'amount',
-        'ITEMAMT' => 'itemsTotalAmount',
+                'AMT' => 'amount',
+                'ITEMAMT' => 'itemsTotalAmount',
 		'SHIPPINGAMT' => 'shippingAmount',
 		'HANDLINGAMT' => 'handlingAmount',
 		'TAXAMT' => 'taxAmount',
@@ -131,7 +130,6 @@ class Response extends Object
 	 * Returns PayPal's cart items in Nette\ArrayHash or false if there are no items.
 	 *
 	 * @param $data Data from PayPal response
-	 *
 	 * @return Nette\ArrayHash or boolean
 	 */
 	public function getCartItems()
@@ -195,10 +193,6 @@ class Response extends Object
 			return true;
 		}
 
-		//if (strcmp($this->responseData['ACK'], 'success') === 0 ||
-		//   strcmp($this->responseData['ACK'], 'successwithwarning') === 0)
-		//    return true;
-
 		return false;
 	}
 
@@ -238,6 +232,8 @@ class Response extends Object
 
 	private function deformatNVP($query)
 	{
+                $data = '';
+                
 		parse_str($query, $data);
 		return $data;
 	}

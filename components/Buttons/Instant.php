@@ -7,7 +7,6 @@
 namespace PayPal\Components\Buttons;
 
 use PayPal\Components\Button;
-
 use Nette\Application\UI\Form;
 
 
@@ -28,7 +27,7 @@ class Instant extends Button
 
 
 
-	public function initPayment(Form $paypalBuyForm)
+	public function initPayment(/*Form $paypalBuyForm*/)
 	{
 		$response = $this->api->doExpressCheckout($this->amount,
 			NULL,
@@ -64,7 +63,7 @@ class Instant extends Button
 
 
 
-	public function processPayment(Form $form)
+	public function processPayment(/*Form $form*/)
 	{
 		$response = $this->api->doPayment(
 			$this->paymentType,
