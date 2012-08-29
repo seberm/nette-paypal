@@ -27,7 +27,7 @@ class Instant extends Button
 
 
 
-	public function initPayment(/*Form $paypalBuyForm*/)
+	public function initPayment(Form $paypalBuyForm)
 	{
 		$response = $this->api->doExpressCheckout($this->amount,
 			NULL,

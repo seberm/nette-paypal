@@ -7,6 +7,7 @@
 namespace PayPal\Components\Buttons;
 
 use PayPal\Components\Button;
+use Nette\Application\UI\Form;
 
 
 class Order extends Button
@@ -26,7 +27,7 @@ class Order extends Button
 	}
 
 
-	public function initPayment(/*Form $button*/)
+	public function initPayment(Form $button)
 	{
 
 		$response = $this->api->setExpressCheckout($this->shipping,
