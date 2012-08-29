@@ -1,4 +1,5 @@
 ### Global gitingore ###
+./nbproject/private/
 
 # NetBeans
 build/
