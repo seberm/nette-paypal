@@ -5,12 +5,11 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\API;
+namespace Flame\PayPal\API;
 
-use PayPal\Utils;
-
-use Nette\Object,
-	Nette\ArrayHash;
+use Flame\PayPal\Utils;
+use Nette\Object;
+use Nette\ArrayHash;
 
 
 class Query extends Object

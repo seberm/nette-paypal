@@ -5,14 +5,13 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\API;
-
-use PayPal\Utils;
+namespace Flame\PayPal\API;
 
 use Nette;
-use Nette\Object,
-	Nette\Iterators\CachingIterator,
-	Nette\ArrayHash;
+use Nette\Object;
+use Flame\PayPal\Utils;
+use Nette\Iterators\CachingIterator;
+use Nette\ArrayHash;
 
 
 class Response extends Object

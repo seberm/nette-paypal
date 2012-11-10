@@ -5,7 +5,7 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal;
+namespace Flame\PayPal;
 
 
 final class Utils

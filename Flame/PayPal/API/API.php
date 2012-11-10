@@ -4,12 +4,12 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\API;
+namespace Flame\PayPal\API;
 
-use Nette\Object,
-    Nette\Http\SessionSection,
-    Nette\Diagnostics\Debugger,
-    Nette\Http\Url;
+use Nette\Object;
+use Nette\Http\SessionSection;
+use Nette\Diagnostics\Debugger;
+use Nette\Http\Url;
 
 
 class API extends Object
