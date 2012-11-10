@@ -23,7 +23,7 @@ abstract class Button extends Control
         // ...
 
 
-	public function renderBuy()
+	public function render()
 	{
 		$this->template
 			 ->setFile(__DIR__ . '/templates/buy.latte')
