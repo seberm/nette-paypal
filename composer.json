@@ -2,7 +2,7 @@
     "name":"flame/paypal-component",
     "description":"PayPal basic API written in Nette",
     "keywords":["api", "paypal", "nette", "payments"],
-    "homepage":"https://github.com/flame-org/Paypal-Component",
+    "homepage":"https://github.com/flame-org/PayPal-Component",
     "license": "BSD-2-Clause-FreeBSD",
     
     "support":{
