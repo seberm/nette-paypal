@@ -1,14 +1,47 @@
 {
-    "name":"nette/paypal",
+    "name":"flame/paypal-component",
     "description":"PayPal basic API written in Nette",
     "keywords":["api", "paypal", "nette", "payments"],
-    "homepage":"https://github.com/seberm/nette-paypal",
-    "license":["GPLv2", "GPLv3"],
+    "homepage":"https://github.com/flame-org/Paypal-Component",
+    "license": "BSD-2-Clause-FreeBSD",
+    
+    "support":{
+        "email":"flame@jsifalda.name",
+        "issues":"https://github.com/flame-org/NavbarBuilder-Component/issues"
+    },
+
     "authors":[
         {
             "name":"Otto Šabart",
             "homepage":"http://seberm.com",
             "email":"seberm@gmail.com"
+        },
+
+        {
+            "name":"Jiří Šifalda",
+            "homepage":"http://jsifalda.name/",
+            "email":"sifalda.jiri@gmail.com"
         }
-    ]
+    ],
+
+    "require":{
+        "php":">=5.3.2",
+        "nette/nette":"dev-master",
+        "flame/framework": "dev-master"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+
+    "config": {
+        "vendor-dir": "libs"
+    },
+
+    "autoload":{
+        "psr-0":{
+            "Flame":""
+        }
+    }
+
 }
