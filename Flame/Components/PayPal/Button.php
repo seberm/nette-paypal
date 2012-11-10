@@ -4,7 +4,7 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\Components;
+namespace Flame\Components\PayPal;
 
 use Nette\Application\UI\Form;
 
@@ -35,7 +35,7 @@ abstract class Button extends Control
 	 * If some submodule wants to create new button,
 	 * it should call this function for its creation.
 	 *
-	 * @return Nette\Application\UI\Form $button
+	 * @return \Nette\Application\UI\Form $button
 	 */
 	public function createComponentButton()
 	{

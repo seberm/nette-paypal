@@ -4,13 +4,13 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\Components\Buttons;
+namespace Flame\Components\PayPal\Buttons;
 
-use PayPal\Components\Button;
+
 use Nette\Application\UI\Form;
 
 
-class Order extends Button
+class Order extends \Flame\Components\PayPal\Button
 {
 
 
@@ -18,7 +18,7 @@ class Order extends Button
 	public $onConfirmation;
 
 
-	public function __construct(Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
+	public function __construct(\Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
 	{
 
 		parent::__construct($parent, $name);

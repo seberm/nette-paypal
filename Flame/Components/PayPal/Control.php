@@ -4,9 +4,9 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace PayPal\Components;
+namespace Flame\Components\PayPal;
 
-use PayPal\API\API;
+use Flame\PayPal\API\API;
 
 use Nette;
 
