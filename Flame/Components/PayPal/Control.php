@@ -64,14 +64,14 @@ class Control extends Nette\Application\UI\Control
 	}
 
 
-        /**
-         * If presenter is not attached it's possible
-         * to set session section with this function.
-         */
-        public function setSessionSection(Nette\Http\SessionSection $section)
-        {
-            $this->session = $section;
-        }
+    /**
+     * If presenter is not attached it's possible
+     * to set session section with this function.
+     */
+    public function setSessionSection(Nette\Http\SessionSection $section)
+    {
+        $this->session = $section;
+    }
 
 
 	protected function attached($presenter)
