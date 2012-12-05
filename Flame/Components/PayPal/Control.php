@@ -11,7 +11,7 @@ use Flame\PayPal\API\API;
 use Nette;
 
 
-class Control extends Nette\Application\UI\Control
+class Control extends \Flame\Application\UI\Control
 {
 
 	/**
