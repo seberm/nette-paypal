@@ -13,15 +13,12 @@ use Nette\Application\UI\Form;
 class Order extends \Flame\Components\PayPal\Button
 {
 
-
 	// Handlers
 	public $onConfirmation;
 
-
-	public function __construct(\Nette\ComponentModel\IContainer $parent = NULL, $name = NULL)
+	public function __construct()
 	{
-
-		parent::__construct($parent, $name);
+		parent::__construct();
 
 		$this->paymentType = 'Order';
 	}
