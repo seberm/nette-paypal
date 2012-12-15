@@ -4,6 +4,7 @@
     "keywords":["api", "paypal", "nette", "payments"],
     "homepage":"https://github.com/flame-org/PayPal-Component",
     "license": "BSD-2-Clause-FreeBSD",
+    "minimum-stability":"dev",
     
     "support":{
         "email":"flame@jsifalda.name",
