@@ -27,7 +27,7 @@
 
     "require":{
         "php":">=5.3.2",
-        "flame/framework": "2.0.*"
+        "flame/framework": ">=2.0.0"
     },
 
     "require-dev": {
