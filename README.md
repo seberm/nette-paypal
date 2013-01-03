@@ -65,7 +65,7 @@
 
 		//$tourModel is instance of PRODUCT
 		$control->addItemToCart(
-			$tourModel['name'], \Flame\Utils\Strings::substring($tourModel['desc'], 0, 25), $tourModel['price']
+			$tourModel['name'], \Nette\Utils\Strings::substring($tourModel['desc'], 0, 25), $tourModel['price']
 		);
 
 		return $control;
