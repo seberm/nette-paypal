@@ -55,10 +55,11 @@ class Query extends Object
 	public function getItemsAmount()
 	{
 		$prices = Utils::array_keys_by_ereg($this->query, '/^L_PAYMENTREQUEST_0_AMT[0-9]+$/');
+		$qtys = Utils::array_keys_by_ereg($this->query, '/^L_PAYMENTREQUEST_0_QTY[0-9]+$/');
 
 		$itemsAmount = 0.0;
-		foreach ($prices as $price) {
-			$itemsAmount += (float)$price;
+		foreach ($prices as $key => $price) {
+			$itemsAmount += (float)$price * (float)$qtys[str_replace('0_AMT', '0_QTY', $key)];
 		}
 
 		return $itemsAmount;
