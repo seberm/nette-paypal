@@ -14,7 +14,7 @@ interface IOrderFactory
 {
 
 	/**
-	 * @return Order
+	 * @return Flame\Components\PayPal\Buttons\Order
 	 */
 	public function create();
 
