@@ -1,14 +1,13 @@
 {
-    "name":"flame/paypal-component",
+    "name":"seberm/paypal-component",
     "description":"PayPal basic API written in Nette",
     "keywords":["api", "paypal", "nette", "payments"],
-    "homepage":"https://github.com/flame-org/PayPal-Component",
+    "homepage":"https://github.com/seberm/nette-paypal",
     "license": "BSD-2-Clause-FreeBSD",
     "minimum-stability":"dev",
     
     "support":{
-        "email":"flame@jsifalda.name",
-        "issues":"https://github.com/flame-org/PayPal-Component/issues"
+        "email":"seberm@seberm.com"
     },
 
     "authors":[
