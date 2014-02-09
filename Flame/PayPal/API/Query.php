@@ -2,7 +2,7 @@
 
 /**
  * @class Query
- * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
+ * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 
 namespace Flame\PayPal\API;

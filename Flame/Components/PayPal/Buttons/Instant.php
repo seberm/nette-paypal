@@ -1,7 +1,7 @@
 <?php
 /**
  * @class Instant (Nette 2.0 Component)
- * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
+ * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 
 namespace Flame\Components\PayPal\Buttons;
