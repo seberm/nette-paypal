@@ -24,49 +24,53 @@
 
 ###Presenter
 
-	/**
-	 * @var \Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory
-	 */
-	private $orderFactory;
+```php
 
-	/**
-	 * @var \Flame\Components\PayPal\Buttons\Order
-	 */
-	private $orderButton;
+/**
+ * @var \Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory
+ */
+private $orderFactory;
+
+/**
+ * @var \Flame\Components\PayPal\Buttons\Order
+ */
+private $orderButton;
 
 
-	/**
-	 * @param \Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory
-	 */
-	public function injectOrderFactory(\Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory)
-	{
-		$this->orderFactory = $orderFactory;
-	}
+/**
+ * @param \Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory
+ */
+public function injectOrderFactory(\Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory)
+{
+	$this->orderFactory = $orderFactory;
+}
 
-	public function startup()
-	{
-		parent::startup();
+public function startup()
+{
+	parent::startup();
 
-		$this->orderButton = $this->orderFactory->create();
-		$this->orderButton->setSessionSection($this->session->getSection('paypal'));
-		$this->orderButton->onSuccessPayment[] = \Nette\Callback::create($this, 'processPayment');
-	}
+	$this->orderButton = $this->orderFactory->create();
+	$this->orderButton->setSessionSection($this->session->getSection('paypal'));
+	$this->orderButton->onSuccessPayment[] = \Nette\Callback::create($this, 'processPayment');
+}
 
-	/**
-	 * @return Flame\Components\PayPal\Buttons\Order
-	 */
-	protected function createComponentPaypalButton()
-	{
+/**
+ * @return Flame\Components\PayPal\Buttons\Order
+ */
+protected function createComponentPaypalButton()
+{
 
-		$control = $this->orderButton;
-		$control->setCurrencyCode(\Flame\PayPal\API\API::CURRENCY_EURO);
-		$control->onConfirmation[] = \Nette\Callback::create($this, 'confirmOrder');
-		$control->onError[] = \Nette\Callback::create($this, 'errorOccurred');
+	$control = $this->orderButton;
+	$control->setCurrencyCode(\Flame\PayPal\API\API::CURRENCY_EURO);
+	$control->onConfirmation[] = \Nette\Callback::create($this, 'confirmOrder');
+	$control->onError[] = \Nette\Callback::create($this, 'errorOccurred');
 
-		//$tourModel is instance of PRODUCT
-		$control->addItemToCart(
-			$tourModel['name'], \Nette\Utils\Strings::substring($tourModel['desc'], 0, 25), $tourModel['price']
-		);
+	//$tourModel is instance of PRODUCT
+	$control->addItemToCart(
+		$tourModel['name'], \Nette\Utils\Strings::substring($tourModel['desc'], 0, 25), $tourModel['price']
+	);
 
-		return $control;
-	}
+	return $control;
+}
+
+```
