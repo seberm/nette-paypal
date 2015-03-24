@@ -4,23 +4,40 @@
 
 ###Config
 
-	parameters:
-		paypal:
-			api:
-				username = 'seberm_1332081338_biz_api1.gmail.com'
-				password = '1332081363'
-				signature = 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
-			sandbox = true
+####Using Extension (Nette 2.1+)
+```yml
+paypal:
+	api:
+		username: 'seberm_1332081338_biz_api1.gmail.com'
+		password: '1332081363'
+		signature: 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
+	sandbox: true # default is false 
+	redirectToConfirm: false # default is true
 
-	factories:
-		paypalOrderButton:
-			implement: Flame\Components\PayPal\Buttons\IOrderFactory
-			setup:
-				- setCredentials(%paypal.api%)
-				- setSandBox(%paypal.sandbox%)
+extensions:
+	paypal: Flame\DI\PayPalExtension
+```
 
-				# This option cause that you're not redirected back on your page for payment confirmation but you confirm payment directly on PayPal page
-				#- setRedirectToConfirm(false)
+####or manually:
+```yml
+parameters:
+	paypal:
+		api:
+			username: 'seberm_1332081338_biz_api1.gmail.com'
+			password: '1332081363'
+			signature: 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
+		sandbox: true
+
+factories:
+	paypalOrderButton:
+		implement: Flame\Components\PayPal\Buttons\IOrderFactory
+		setup:
+			- setCredentials(%paypal.api%)
+			- setSandBox(%paypal.sandbox%)
+
+			# This option cause that you're not redirected back on your page for payment confirmation but you confirm payment directly on PayPal page
+			#- setRedirectToConfirm(false)
+```
 
 ###Presenter
 
