@@ -18,7 +18,7 @@ class API extends Object
 	/**
 	 * Tells which version of PayPal API we want use
 	 */
-	const VERSION = '72.0';
+	const VERSION = '120.0';
 
 	// PayPal SandBox URLs
 	const SANDBOX_END_POINT = 'https://api-3t.sandbox.paypal.com/nvp';
@@ -234,7 +234,7 @@ class API extends Object
 		$response = $this->call(new Request($query));
 
 		if ($response->success) {
-			$ses->payerID = $response->responseData->payerID;
+			$ses->payerID = $response->getResponseData('payerID');
 		}
 
 		return $response;
