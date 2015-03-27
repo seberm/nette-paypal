@@ -14,7 +14,7 @@ paypal:
 	sandbox: true # default is false 
 
 extensions:
-	paypal: Flame\DI\PayPalExtension
+	paypal: Seberm\DI\PayPalExtension
 ```
 
 ####or manually:
@@ -29,7 +29,7 @@ parameters:
 
 factories:
 	paypalOrderButton:
-		implement: Flame\Components\PayPal\Buttons\IOrderFactory
+		implement: Seberm\Components\PayPal\Buttons\IOrderFactory
 		setup:
 			- setCredentials(%paypal.api%)
 			- setSandBox(%paypal.sandbox%)
@@ -40,20 +40,20 @@ factories:
 ```php
 
 /**
- * @var \Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory
+ * @var \Seberm\Components\PayPal\Buttons\IOrderFactory $orderFactory
  */
 private $orderFactory;
 
 /**
- * @var \Flame\Components\PayPal\Buttons\Order
+ * @var \Seberm\Components\PayPal\Buttons\Order
  */
 private $orderButton;
 
 
 /**
- * @param \Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory
+ * @param \Seberm\Components\PayPal\Buttons\IOrderFactory $orderFactory
  */
-public function injectOrderFactory(\Flame\Components\PayPal\Buttons\IOrderFactory $orderFactory)
+public function injectOrderFactory(\Seberm\Components\PayPal\Buttons\IOrderFactory $orderFactory)
 {
 	$this->orderFactory = $orderFactory;
 }
@@ -68,13 +68,13 @@ public function startup()
 }
 
 /**
- * @return Flame\Components\PayPal\Buttons\Order
+ * @return Seberm\Components\PayPal\Buttons\Order
  */
 protected function createComponentPaypalButton()
 {
 
 	$control = $this->orderButton;
-	$control->setCurrencyCode(\Flame\PayPal\API\API::CURRENCY_EURO);
+	$control->setCurrencyCode(\Seberm\PayPal\API\API::CURRENCY_EURO);
 	$control->onConfirmation[] = \Nette\Callback::create($this, 'confirmOrder');
 	$control->onError[] = \Nette\Callback::create($this, 'errorOccurred');
 

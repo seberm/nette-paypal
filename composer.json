@@ -39,7 +39,7 @@
 
     "autoload":{
         "psr-0":{
-            "Flame":""
+            "Seberm":""
         }
     }
 
