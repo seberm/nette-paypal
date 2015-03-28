@@ -1,7 +1,7 @@
 {
     "name":"seberm/paypal-component",
     "description":"PayPal basic API written in Nette",
-    "keywords":["api", "paypal", "nette", "payments"],
+    "keywords":["api", "paypal", "nette", "payments", "component"],
     "homepage":"https://github.com/seberm/nette-paypal",
     "license": "BSD-2-Clause-FreeBSD",
     "minimum-stability":"dev",
