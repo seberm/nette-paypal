@@ -5,11 +5,11 @@
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 
-namespace Flame\PayPal\API;
+namespace Seberm\PayPal\API;
 
 use Nette;
 use Nette\Object;
-use Flame\PayPal\Utils;
+use Seberm\PayPal\Utils;
 use Nette\Iterators\CachingIterator;
 use Nette\ArrayHash;
 

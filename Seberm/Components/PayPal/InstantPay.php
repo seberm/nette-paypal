@@ -7,7 +7,7 @@
  * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
  */
 
-namespace Flame\Components\PayPal;
+namespace Seberm\Components\PayPal;
 
 
 class InstantPay extends Control

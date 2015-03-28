@@ -4,7 +4,7 @@
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 
-namespace Flame\PayPal\API;
+namespace Seberm\PayPal\API;
 
 use Nette\Object;
 use Nette\Http\SessionSection;
@@ -18,7 +18,7 @@ class API extends Object
 	/**
 	 * Tells which version of PayPal API we want use
 	 */
-	const VERSION = '72.0';
+	const VERSION = '120.0';
 
 	// PayPal SandBox URLs
 	const SANDBOX_END_POINT = 'https://api-3t.sandbox.paypal.com/nvp';
@@ -234,7 +234,7 @@ class API extends Object
 		$response = $this->call(new Request($query));
 
 		if ($response->success) {
-			$ses->payerID = $response->responseData->payerID;
+			$ses->payerID = $response->getResponseData('payerID');
 		}
 
 		return $response;
@@ -292,7 +292,7 @@ class API extends Object
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 		// We should check if paypal has valid certificate
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 		// Just do normal POST

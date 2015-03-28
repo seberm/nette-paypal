@@ -4,11 +4,11 @@
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 
-namespace Flame\Components\PayPal\Buttons;
+namespace Seberm\Components\PayPal\Buttons;
 
 use Nette\Application\UI\Form;
 
-class Instant extends \Flame\Components\PayPal\Button
+class Instant extends \Seberm\Components\PayPal\Button
 {
 
 	public $onSuccessBuy;

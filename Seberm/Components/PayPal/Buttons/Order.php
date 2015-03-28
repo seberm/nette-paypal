@@ -4,13 +4,13 @@
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 
-namespace Flame\Components\PayPal\Buttons;
+namespace Seberm\Components\PayPal\Buttons;
 
 
 use Nette\Application\UI\Form;
 
 
-class Order extends \Flame\Components\PayPal\Button
+class Order extends \Seberm\Components\PayPal\Button
 {
 
 	// Handlers

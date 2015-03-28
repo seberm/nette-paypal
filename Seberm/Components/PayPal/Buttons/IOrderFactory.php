@@ -3,18 +3,18 @@
  * IOrderFactory.php
  *
  * @author  Jiří Šifalda <sifalda.jiri@gmail.com>
- * @package Flame
+ * @package Seberm
  *
  * @date    05.12.12
  */
 
-namespace Flame\Components\PayPal\Buttons;
+namespace Seberm\Components\PayPal\Buttons;
 
 interface IOrderFactory
 {
 
 	/**
-	 * @return Flame\Components\PayPal\Buttons\Order
+	 * @return \Seberm\Components\PayPal\Buttons\Order
 	 */
 	public function create();
 
