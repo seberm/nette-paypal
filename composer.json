@@ -5,7 +5,7 @@
     "homepage":"https://github.com/seberm/nette-paypal",
     "license": "BSD-2-Clause-FreeBSD",
     "minimum-stability":"dev",
-    
+
     "support":{
         "email":"seberm@seberm.com"
     },
@@ -18,9 +18,8 @@
         },
 
         {
-            "name":"Jiří Šifalda",
-            "homepage":"http://jsifalda.name/",
-            "email":"sifalda.jiri@gmail.com"
+            "name":"Contributors",
+            "homepage":"https://github.com/seberm/nette-paypal/graphs/contributors",
         }
     ],
 
