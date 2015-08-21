@@ -1,38 +1,37 @@
 # PayPal Component
 
-##Usage
+## Usage
 
-###Config
+### Configuration
 
-####Using Extension (Nette 2.1+)
+#### Using Extension (Nette 2.1+)
 ```yml
 paypal:
-	api:
-		username: 'seberm_1332081338_biz_api1.gmail.com'
-		password: '1332081363'
-		signature: 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
-	sandbox: true # default is false 
+    api:
+       username: 'seberm_1332081338_biz_api1.gmail.com'
+       password: '1332081363'
+       signature: 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
+    sandbox: true # default is false
 
 extensions:
-	paypal: Seberm\DI\PayPalExtension
+    paypal: Seberm\DI\PayPalExtension
 ```
 
 ####or manually:
 ```yml
-parameters:
-	paypal:
-		api:
-			username: 'seberm_1332081338_biz_api1.gmail.com'
-			password: '1332081363'
-			signature: 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
-		sandbox: true
+    paypal:
+       api:
+           username: 'seberm_1332081338_biz_api1.gmail.com'
+           password: '1332081363'
+           signature: 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
+       sandbox: true
 
 factories:
-	paypalOrderButton:
-		implement: Seberm\Components\PayPal\Buttons\IOrderFactory
-		setup:
-			- setCredentials(%paypal.api%)
-			- setSandBox(%paypal.sandbox%)
+    paypalOrderButton:
+        implement: Seberm\Components\PayPal\Buttons\IOrderFactory
+        setup:
+            - setCredentials(%paypal.api%)
+            - setSandBox(%paypal.sandbox%)
 ```
 
 ###Presenter
@@ -55,16 +54,16 @@ private $orderButton;
  */
 public function injectOrderFactory(\Seberm\Components\PayPal\Buttons\IOrderFactory $orderFactory)
 {
-	$this->orderFactory = $orderFactory;
+    $this->orderFactory = $orderFactory;
 }
 
 public function startup()
 {
-	parent::startup();
+    parent::startup();
 
-	$this->orderButton = $this->orderFactory->create();
-	$this->orderButton->setSessionSection($this->session->getSection('paypal'));
-	$this->orderButton->onSuccessPayment[] = \Nette\Callback::create($this, 'processPayment');
+    $this->orderButton = $this->orderFactory->create();
+    $this->orderButton->setSessionSection($this->session->getSection('paypal'));
+    $this->orderButton->onSuccessPayment[] = \Nette\Callback::create($this, 'processPayment');
 }
 
 /**
@@ -72,18 +71,17 @@ public function startup()
  */
 protected function createComponentPaypalButton()
 {
+    $control = $this->orderButton;
+    $control->setCurrencyCode(\Seberm\PayPal\API\API::CURRENCY_EURO);
+    $control->onConfirmation[] = \Nette\Callback::create($this, 'confirmOrder');
+    $control->onError[] = \Nette\Callback::create($this, 'errorOccurred');
 
-	$control = $this->orderButton;
-	$control->setCurrencyCode(\Seberm\PayPal\API\API::CURRENCY_EURO);
-	$control->onConfirmation[] = \Nette\Callback::create($this, 'confirmOrder');
-	$control->onError[] = \Nette\Callback::create($this, 'errorOccurred');
+    $price = 56; // In Euro in this example
 
-	//$tourModel is instance of PRODUCT
-	$control->addItemToCart(
-		$tourModel['name'], \Nette\Utils\Strings::substring($tourModel['desc'], 0, 25), $tourModel['price']
-	);
+    $control->addItemToCart(
+    	'Name of a product', 'Product description', $price)
+    );
 
-	return $control;
+    return $control;
 }
-
 ```
