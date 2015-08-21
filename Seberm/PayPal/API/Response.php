@@ -11,7 +11,7 @@ use Nette;
 use Nette\Object;
 use Seberm\PayPal\Utils;
 use Nette\Iterators\CachingIterator;
-use Nette\ArrayHash;
+use Nette\Utils\ArrayHash;
 
 
 class Response extends Object

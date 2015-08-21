@@ -8,7 +8,7 @@ namespace Seberm\PayPal\API;
 
 use Nette\Object;
 use Nette\Http\SessionSection;
-use Nette\Diagnostics\Debugger;
+use Tracy\Debugger;
 use Nette\Http\Url;
 
 
