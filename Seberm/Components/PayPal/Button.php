@@ -46,7 +46,7 @@ abstract class Button extends Control
 		}
 
 		$form->addImage('paypalCheckOutButton', self::PAYPAL_BUTTON_IMAGE, 'Check out with PayPal');
-		$form->onSuccess[] = callback($this, 'initPayment');
+		$form->onSuccess[] = array($this, 'initPayment');
 
 		return $form;
 	}
