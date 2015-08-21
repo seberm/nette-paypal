@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @class Request
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
@@ -37,16 +36,13 @@ class Request extends Object
 	}
 
 
-
 	public function setQuery($query)
 	{
 		if ($query instanceof Query) {
 			$this->query = $query;
-
 		} else {
 			if (is_array($query)) {
 				$this->query = new Query($query);
-
 			} else {
 				$this->query = new Query((array)$query);
 			}
@@ -56,7 +52,6 @@ class Request extends Object
 
 		return $this;
 	}
-
 
 
 	public function getQuery($key = NULL, $default = NULL)
@@ -73,13 +68,11 @@ class Request extends Object
 	}
 
 
-
 	public function addQuery($query)
 	{
 		$this->query->appendQuery((array)$query);
 		return $this;
 	}
-
 
 
 	public function setMethod($method)
@@ -89,7 +82,6 @@ class Request extends Object
 		));
 		return $this;
 	}
-
 
 
 	public function __toString()

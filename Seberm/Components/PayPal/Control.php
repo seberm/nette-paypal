@@ -84,12 +84,10 @@ class Control extends \Nette\Application\UI\Control
 	}
 
 
-
 	public function setTranslator(Nette\Localization\ITranslator $translator)
 	{
 		$this->translator = $translator;
 	}
-
 
 
 	final public function getTranslator()
@@ -98,12 +96,10 @@ class Control extends \Nette\Application\UI\Control
 	}
 
 
-
 	public function getErrors()
 	{
 		return $this->api->errors;
 	}
-
 
 
 	public function setCredentials(array $params)
@@ -113,13 +109,11 @@ class Control extends \Nette\Application\UI\Control
 	}
 
 
-
 	public function setSandBox($stat = true)
 	{
 		$this->api->setSandbox($stat);
 		return $this;
 	}
-
 
 
 	public function getShippingDetails()
@@ -140,7 +134,6 @@ class Control extends \Nette\Application\UI\Control
 	}
 
 
-
 	protected function buildUrl($signal)
 	{
 		$url = $this->presenter->link($this->name . ":${signal}!");
@@ -148,7 +141,6 @@ class Control extends \Nette\Application\UI\Control
 		// Some better way to do it in Nette?
 		return (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $url;
 	}
-
 
 
 	/**
@@ -161,13 +153,11 @@ class Control extends \Nette\Application\UI\Control
 	}
 
 
-
 	public function setCurrencyCode($currency)
 	{
 		$this->currencyCode = $currency;
 		return $this;
 	}
-
 
 
 	/**
@@ -180,13 +170,11 @@ class Control extends \Nette\Application\UI\Control
 	}
 
 
-
 	public function setShipping($shipping)
 	{
 		$this->shipping = (float)$shipping;
 		return $this;
 	}
-
 
 
 	public function setTax($tax)
@@ -196,13 +184,11 @@ class Control extends \Nette\Application\UI\Control
 	}
 
 
-
 	public function setInvoiceValue($value)
 	{
 		$this->api->invoiceValue = $value;
 		return $this;
 	}
-
 
 
 	public function addItemToCart($name, $description, $price, $quantity = 1)

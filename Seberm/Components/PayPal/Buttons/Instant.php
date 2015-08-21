@@ -1,12 +1,12 @@
 <?php
 /**
- * @class Instant (Nette 2.0 Component)
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 
 namespace Seberm\Components\PayPal\Buttons;
 
 use Nette\Application\UI\Form;
+
 
 class Instant extends \Seberm\Components\PayPal\Button
 {
@@ -22,7 +22,6 @@ class Instant extends \Seberm\Components\PayPal\Button
 			->setFile(__DIR__ . '/../templates/pay.latte')
 			->render();
 	}
-
 
 
 	public function initPayment(Form $paypalBuyForm)
@@ -44,7 +43,6 @@ class Instant extends \Seberm\Components\PayPal\Button
 	}
 
 
-
 	protected function createComponentPaypalPayForm()
 	{
 		$form = new Form;
@@ -58,7 +56,6 @@ class Instant extends \Seberm\Components\PayPal\Button
 
 		return $form;
 	}
-
 
 
 	public function processPayment(/*Form $form*/)
@@ -78,7 +75,6 @@ class Instant extends \Seberm\Components\PayPal\Button
 	}
 
 
-
 	public function handleProcessBuy()
 	{
 		$response = $this->api->getShippingDetails($this->session);
@@ -91,7 +87,6 @@ class Instant extends \Seberm\Components\PayPal\Button
 		// Callback
 		$this->onSuccessBuy($response->responseData);
 	}
-
 
 
 	public function handleCancel()

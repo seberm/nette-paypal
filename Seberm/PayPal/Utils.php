@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @class Utils
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
@@ -10,10 +9,8 @@ namespace Seberm\PayPal;
 
 final class Utils
 {
-
 	public static function translateKeys(array $data, $translationTable = array(), $method = 'strtolower')
 	{
-
         // If there are no translation items in
         // translation table we just return untranslated data
         if (empty($translationTable))
@@ -34,7 +31,6 @@ final class Utils
 	}
 
 
-
 	/**
 	 * Finds out if all keys in $keys are included in $arr.
 	 *
@@ -51,7 +47,6 @@ final class Utils
 
 		return false;
 	}
-
 
 
 	/**
@@ -76,5 +71,4 @@ final class Utils
 
 		return $subArray;
 	}
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @class Response
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
@@ -19,7 +18,7 @@ class Response extends Object
 
 	private $responseData = NULL;
 
-	// We have to check if all these keys exist in array
+	// We have to check if all of these keys exist in array
 	public $CART_ITEM_KEYS = array(
 		'l_name',
 		'l_qty',
@@ -32,7 +31,7 @@ class Response extends Object
 		'l_itemheightvalue',
 	);
 
-	// Contents items which we want to normalize
+	// These items we want to normalize
 	private $translationTable = array(
 		'CHECKOUTSTATUS' => 'checkoutStatus',
 		'CORRELATIONID' => 'correlationID',
@@ -50,8 +49,8 @@ class Response extends Object
 		'SHIPTOCOUNTRYNAME' => 'shipToCountryName',
 		'ADDRESSSTATUS' => 'addressStatus',
 		'CURRENCYCODE' => 'currencyCode',
-                'AMT' => 'amount',
-                'ITEMAMT' => 'itemsTotalAmount',
+		'AMT' => 'amount',
+		'ITEMAMT' => 'itemsTotalAmount',
 		'SHIPPINGAMT' => 'shippingAmount',
 		'HANDLINGAMT' => 'handlingAmount',
 		'TAXAMT' => 'taxAmount',
@@ -97,7 +96,6 @@ class Response extends Object
 	);
 
 
-
 	public function __construct($data)
 	{
 		$formattedData = $this->deformatNVP($data);
@@ -105,24 +103,20 @@ class Response extends Object
 	}
 
 
-
 	public function getResponseData($key = NULL)
 	{
 		if (isset($key)) {
 			return array_key_exists($key, $this->responseData) ? $this->responseData[$key] : NULL;
-
 		} else {
 			return ArrayHash::from($this->responseData);
 		}
 	}
 
 
-
 	public function setResponseData($arr)
 	{
 		$this->responseData = $arr;
 	}
-
 
 
 	/**
@@ -184,7 +178,6 @@ class Response extends Object
 	}
 
 
-
 	public function getSuccess()
 	{
 		if (strcasecmp($this->getResponseData()->ack, 'success') === 0 ||
@@ -196,19 +189,16 @@ class Response extends Object
 	}
 
 
-
 	public function getToken()
 	{
 		return $this->getResponseData()->token;
 	}
 
 
-
 	public function getErrors()
 	{
 		return array_values(Utils::array_keys_by_ereg($this->responseData, '/^l_longmessage[0-9]+/'));
 	}
-
 
 
 	/**
@@ -221,12 +211,10 @@ class Response extends Object
 	}
 
 
-
 	private function err($message)
 	{
 		$this->errors[] = $message;
 	}
-
 
 
 	private function deformatNVP($query)
@@ -236,5 +224,4 @@ class Response extends Object
 		parse_str($query, $data);
 		return $data;
 	}
-
 }

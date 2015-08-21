@@ -20,7 +20,7 @@ abstract class Button extends Control
 
 	// Handlers
 	// Here it's possible to add some special handlers
-        // ...
+	// ...
 
 
 	public function render()

@@ -63,7 +63,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * Sets object data
 	 * @var string|array $opts
@@ -80,7 +79,6 @@ class API extends Object
 
 		return $this;
 	}
-
 
 
 	/**
@@ -102,7 +100,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * Adds new item to PayPals Cart
 	 */
@@ -115,7 +112,6 @@ class API extends Object
 			'L_PAYMENTREQUEST_0_QTY' => $quantity,
 		);
 	}
-
 
 
 	/**
@@ -165,7 +161,6 @@ class API extends Object
 	}
 
 
-
 	public function doExpressCheckout($paymentAmount, $description, $currencyCodeType, $paymentType, $returnURL, $cancelURL, $ses)
 	{
 		$query = array(
@@ -188,7 +183,6 @@ class API extends Object
 
 		return $response;
 	}
-
 
 
 	/**
@@ -218,7 +212,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * @param object $ses
 	 *
@@ -239,7 +232,6 @@ class API extends Object
 
 		return $response;
 	}
-
 
 
 	/**
@@ -263,7 +255,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * @return string
 	 */
@@ -271,7 +262,6 @@ class API extends Object
 	{
 		return $this->sandbox ? self::SANDBOX_END_POINT : self::END_POINT;
 	}
-
 
 
 	/**
@@ -331,7 +321,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * Generates URL to PayPal for redirection.
 	 *
@@ -358,7 +347,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * @param $signature
 	 *
@@ -370,7 +358,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * @return array|null
 	 */
@@ -378,7 +365,6 @@ class API extends Object
 	{
 		return $this->getData('signature');
 	}
-
 
 
 	/**
@@ -392,7 +378,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * @return array|NULL
 	 */
@@ -402,7 +387,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * @return array|NULL
 	 */
@@ -410,7 +394,6 @@ class API extends Object
 	{
 		return $this->getData('username');
 	}
-
 
 
 	/**
@@ -424,7 +407,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * @return array|NULL
 	 */
@@ -432,7 +414,6 @@ class API extends Object
 	{
 		return $this->getData('proxyPort');
 	}
-
 
 
 	/**
@@ -447,7 +428,6 @@ class API extends Object
 	}
 
 
-
 	/**
 	 * @return array|NULL
 	 */
@@ -455,7 +435,6 @@ class API extends Object
 	{
 		return $this->getData('proxyHost');
 	}
-
 
 
 	/**
@@ -467,7 +446,6 @@ class API extends Object
 	{
 		return $this->setData('proxyHost', (string)$proxyHost);
 	}
-
 
 
 	/**

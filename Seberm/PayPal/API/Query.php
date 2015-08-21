@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @class Query
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
@@ -16,11 +15,11 @@ class Query extends Object
 {
 
 	private $query = '';
-   
+
     /**
      * @var $translationTable It's possible to specify translation table for query keys
      */
-    public $translationTable = array();
+	public $translationTable = array();
 
 
 	public function __construct(array $query)
@@ -29,12 +28,10 @@ class Query extends Object
 	}
 
 
-
 	public function has($key)
 	{
 		return array_key_exists($key, $this->query);
 	}
-
 
 
 	public function getData($key = NULL, $default = NULL)
@@ -51,7 +48,6 @@ class Query extends Object
 	}
 
 
-
 	public function getItemsAmount()
 	{
 		$prices = Utils::array_keys_by_ereg($this->query, '/^L_PAYMENTREQUEST_0_AMT[0-9]+$/');
@@ -66,12 +62,10 @@ class Query extends Object
 	}
 
 
-
 	public function getAmount()
 	{
 		return $this->itemsAmount + $this->getData('taxAmount') + $this->getData('shippingAmount');
 	}
-
 
 
 	public function appendQuery($query, $val = NULL)
@@ -82,14 +76,12 @@ class Query extends Object
 
 		if (isset($val)) {
 			$this->query[$query] = $val;
-
 		} elseif (is_array($query)) {
 			$this->query = array_merge($query, $this->query);
 		}
 
 		return $this;
 	}
-
 
 
 	/**
@@ -103,7 +95,6 @@ class Query extends Object
 
 		return http_build_query($query, '', '&');
 	}
-
 
 
 	public function __toString()
