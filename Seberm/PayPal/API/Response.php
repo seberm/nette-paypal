@@ -231,8 +231,8 @@ class Response extends Object
 
 	private function deformatNVP($query)
 	{
-                $data = '';
-                
+		$data = '';
+
 		parse_str($query, $data);
 		return $data;
 	}
