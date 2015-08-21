@@ -107,3 +107,10 @@ protected function createComponentPaypalButton()
     return $control;
 }
 ```
+
+### Adding PayPal button to a template
+Add following control macro where you want to have your PayPal button.
+
+```
+{control paypalButton}
+```
