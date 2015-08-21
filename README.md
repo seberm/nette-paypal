@@ -4,8 +4,14 @@
 
 ### Configuration
 
-#### Using Extension (Nette 2.1+)
+#### A) Using DI Extension (Nette 2.1+)
+
+Add following lines into your config.neon file.
+
 ```yml
+parameters: ...
+
+---------------------------
 paypal:
     api:
        username: 'seberm_1332081338_biz_api1.gmail.com'
@@ -15,16 +21,27 @@ paypal:
 
 extensions:
     paypal: Seberm\DI\PayPalExtension
+---------------------------
+
+php:
+    date.timezone: Europe/Prague
+    ...
 ```
 
-####or manually:
+More about DI container extensions you can find here: https://doc.nette.org/en/2.3/di-extensions
+
+#### B) Manually throught factories
+
+Alternatively you can configure component via factories.
+
 ```yml
+parameters:
     paypal:
-       api:
-           username: 'seberm_1332081338_biz_api1.gmail.com'
-           password: '1332081363'
-           signature: 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
-       sandbox: true
+        api:
+            username: 'seberm_1332081338_biz_api1.gmail.com'
+            password: '1332081363'
+            signature: 'AWiH1IO0zFZrEQbbn0JwDZHbWukIAebmYjpOylRCqBGGgztea2bku.N4'
+        sandbox: true
 
 factories:
     paypalOrderButton:
@@ -34,10 +51,9 @@ factories:
             - setSandBox(%paypal.sandbox%)
 ```
 
-###Presenter
+### Presenter
 
 ```php
-
 /**
  * @var \Seberm\Components\PayPal\Buttons\IOrderFactory $orderFactory
  */
