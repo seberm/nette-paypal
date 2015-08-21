@@ -5,8 +5,7 @@
 ### Configuration
 
 #### A) Using DI Extension (Nette 2.1+)
-
-Add following lines into your config.neon file.
+Add following lines into your `config.neon` file.
 
 ```yml
 parameters: ...
@@ -31,7 +30,6 @@ php:
 More about DI container extensions you can find here: https://doc.nette.org/en/2.3/di-extensions
 
 #### B) Manually throught factories
-
 Alternatively you can configure component via factories.
 
 ```yml
@@ -51,35 +49,43 @@ factories:
             - setSandBox(%paypal.sandbox%)
 ```
 
-### Presenter
+### Example of a Presenter
+Firstly, you have to get IOrderFactory object.
+
+#### Getting IOrderFactory using DI extensions (method A)
+```php
+/** @var \Seberm\Components\PayPal\Buttons\IOrderFactory @inject */
+public $factory;
+
+```
+
+#### Getting IOrderFactory using nette factories (method B)
+```php
+/** @var \Seberm\Components\PayPal\Buttons\IOrderFactory $factory */
+public $factory;
+
+/**
+ * @param \Seberm\Components\PayPal\Buttons\IOrderFactory $factory
+ */
+public function injectOrderFactory(\Seberm\Components\PayPal\Buttons\IOrderFactory $factory)
+{
+    $this->factory = $factory;
+}
+```
+
+Following code will be the same for both methods.
 
 ```php
-/**
- * @var \Seberm\Components\PayPal\Buttons\IOrderFactory $orderFactory
- */
-private $orderFactory;
-
-/**
- * @var \Seberm\Components\PayPal\Buttons\Order
- */
+/** @var \Seberm\Components\PayPal\Buttons\Order */
 private $orderButton;
-
-
-/**
- * @param \Seberm\Components\PayPal\Buttons\IOrderFactory $orderFactory
- */
-public function injectOrderFactory(\Seberm\Components\PayPal\Buttons\IOrderFactory $orderFactory)
-{
-    $this->orderFactory = $orderFactory;
-}
 
 public function startup()
 {
     parent::startup();
 
-    $this->orderButton = $this->orderFactory->create();
+    $this->orderButton = $this->factory->create();
     $this->orderButton->setSessionSection($this->session->getSection('paypal'));
-    $this->orderButton->onSuccessPayment[] = \Nette\Callback::create($this, 'processPayment');
+    $this->orderButton->onSuccessPayment[] = new \Nette\Utils\Callback($this, 'processPayment');
 }
 
 /**
@@ -89,8 +95,8 @@ protected function createComponentPaypalButton()
 {
     $control = $this->orderButton;
     $control->setCurrencyCode(\Seberm\PayPal\API\API::CURRENCY_EURO);
-    $control->onConfirmation[] = \Nette\Callback::create($this, 'confirmOrder');
-    $control->onError[] = \Nette\Callback::create($this, 'errorOccurred');
+    $control->onConfirmation[] = new \Nette\Utils\Callback($this, 'confirmOrder');
+    $control->onError[] = new \Nette\Utils\Callback($this, 'errorOccurred');
 
     $price = 56; // In Euro in this example
 
