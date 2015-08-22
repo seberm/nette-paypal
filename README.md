@@ -85,18 +85,20 @@ public function startup()
 
     $this->orderButton = $this->factory->create();
     $this->orderButton->setSessionSection($this->session->getSection('paypal'));
-    $this->orderButton->onSuccessPayment[] = new \Nette\Utils\Callback($this, 'processPayment');
+    $this->orderButton->onSuccessPayment[] = array($this, 'successPayment');
 }
 
 /**
+ * Creates new button control. After that you can load this control in template
+ * via {control paypalButton}.
  * @return Seberm\Components\PayPal\Buttons\Order
  */
 protected function createComponentPaypalButton()
 {
     $control = $this->orderButton;
     $control->setCurrencyCode(\Seberm\PayPal\API\API::CURRENCY_EURO);
-    $control->onConfirmation[] = new \Nette\Utils\Callback($this, 'confirmOrder');
-    $control->onError[] = new \Nette\Utils\Callback($this, 'errorOccurred');
+    $control->onConfirmation[] = array($this, 'confirmOrder');
+    $control->onError[] = array($this, 'errorOccurred');
 
     $price = 56; // In Euro in this example
 
