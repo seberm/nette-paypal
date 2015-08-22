@@ -103,9 +103,8 @@ protected function createComponentPaypalButton()
 
     $price = 56; // In Euro in this example
 
-    $control->addItemToCart(
-    	'Name of a product', 'Product description', $price)
-    );
+    $control->addItemToCart('Product A', 'A - Product description', $price));
+    $control->addItemToCart('Product B', 'B - Product description', 123));
 
     return $control;
 }
