@@ -134,10 +134,11 @@ public function successPayment($data) {
      // See dump($data);
 }
 ```
+
 ```php
-public function confirmOrder()   { ... }
-public function errorOccurred()  { ... }
-public function canceled()       { ... }
+public function confirmOrder()   { ... } // Is called If payment inicialization succeeds
+public function errorOccurred()  { ... } // Called if some error occures (for example error in communication)
+public function canceled()       { ... } // Called if user cancels his order
 ```
 
 
