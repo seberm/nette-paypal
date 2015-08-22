@@ -117,8 +117,24 @@ protected function createComponentPaypalButton()
 ```
 
 ##### Don't forget to define callback methods
+This method is called after successful confirmation. It has one argument `$data`.
+
 ```php
-public function successPayment() { ... }
+public function successPayment($data) {
+    /**
+     * Here you can proccess information about user. For example save it to the
+     * database...
+     */
+
+     $payerID = $data->payerID;
+     $firstName = $data->firstName;
+     $lastName = $data->lastName;
+     $email = $data->email;
+
+     // See dump($data);
+}
+```
+```php
 public function confirmOrder()   { ... }
 public function errorOccurred()  { ... }
 public function canceled()       { ... }
