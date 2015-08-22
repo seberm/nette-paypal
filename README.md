@@ -101,6 +101,12 @@ protected function createComponentPaypalButton()
     $control->onError[] = array($this, 'errorOccurred');
     $control->onCancel[] = array($this, 'canceled');
 
+    // Is possible to set shipping
+    $button->shipping = 4.3;
+
+    // or set a tax
+    $button->tax = 3.1;
+
     $price = 56; // In Euro in this example
 
     $control->addItemToCart('Product A', 'A - Product description', $price));
