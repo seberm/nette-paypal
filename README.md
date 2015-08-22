@@ -1,6 +1,17 @@
 # PayPal Component
 
-## Usage
+### Installation
+Simplest installation is using `composer`:
+```
+$ composer require seberm/paypal-component
+```
+
+or manually you can edit `composer.json`:
+```
+"require": {
+        "seberm/paypal-component": "1.0.*"
+}
+```
 
 ### Configuration
 
