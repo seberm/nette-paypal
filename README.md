@@ -133,7 +133,7 @@ This method is called after successful confirmation. It has one argument `$data`
 ```php
 public function successPayment($data) {
     /**
-     * Here you can proccess information about user. For example save it to the
+     * Here you can proccess information about user. For example save him to the
      * database...
      */
 
@@ -146,10 +146,15 @@ public function successPayment($data) {
 }
 ```
 
+Following method is called if some error occures (for example error in
+communication). It receives an array of errors.
 ```php
-public function confirmOrder()   { ... } // Is called If payment inicialization succeeds
-public function errorOccurred()  { ... } // Called if some error occures (for example error in communication)
-public function canceled()       { ... } // Called if user cancels his order
+public function errorOccurred($errors)  { ... }
+```
+
+```php
+public function confirmOrder($data)   { ... } // Is called If payment inicialization succeeds
+public function canceled($data)       { ... } // Called if user cancels his order
 ```
 
 
