@@ -99,6 +99,7 @@ protected function createComponentPaypalButton()
     $control->setCurrencyCode(\Seberm\PayPal\API\API::CURRENCY_EURO);
     $control->onConfirmation[] = array($this, 'confirmOrder');
     $control->onError[] = array($this, 'errorOccurred');
+    $control->onCancel[] = array($this, 'canceled');
 
     $price = 56; // In Euro in this example
 
@@ -109,6 +110,15 @@ protected function createComponentPaypalButton()
     return $control;
 }
 ```
+
+##### Don't forget to define callback methods
+```php
+public function successPayment() { ... }
+public function confirmOrder()   { ... }
+public function errorOccurred()  { ... }
+public function canceled()       { ... }
+```
+
 
 ### Adding PayPal button to a template
 Add following control macro where you want to have your PayPal button.
