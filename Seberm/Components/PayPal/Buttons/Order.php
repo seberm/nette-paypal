@@ -45,15 +45,12 @@ class Order extends \Seberm\Components\PayPal\Button
 	}
 
 
-
 	// Gets shipping information and wait for payment confirmation
 	public function handleConfirmation()
 	{
-
 		$response = $this->api->getShippingDetails($this->session);
 
 		if ($response->error) {
-
 			$this->onError($response->errors);
 			return;
 		}
@@ -65,13 +62,11 @@ class Order extends \Seberm\Components\PayPal\Button
 
 	public function confirmExpressCheckout()
 	{
-
 		// We have to get data before confirmation!
 		// It's because the PayPal token destroyed after payment confirmation
 		// (Session section is destroyed)
 		$responseDetails = $this->api->getShippingDetails($this->session);
 		if ($responseDetails->error) {
-
 			$this->onError($responseDetails->errors);
 			return;
 		}
@@ -90,7 +85,6 @@ class Order extends \Seberm\Components\PayPal\Button
 
 	public function handleCancel()
 	{
-
 		$response = $this->api->getShippingDetails($this->session);
 
 		if ($response->error) {
