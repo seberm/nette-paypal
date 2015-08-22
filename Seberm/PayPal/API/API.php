@@ -29,8 +29,9 @@ class API extends Object
 	const PAYPAL_URL = 'https://www.paypal.com/cgi-bin/webscr';
 
 	/**
-	 * @todo Add more currencies
+	 * @TODO Add more currencies
 	 */
+	const CURRENCY_DOLAR = 'USD';
 	const CURRENCY_CROUND = 'CZK';
 	const CURRENCY_EURO = 'EUR';
 
