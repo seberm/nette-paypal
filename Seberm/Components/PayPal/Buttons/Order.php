@@ -1,6 +1,5 @@
 <?php
 /**
- * @class Order (Nette 2.0 Component)
  * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 

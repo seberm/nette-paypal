@@ -1,10 +1,9 @@
 <?php
 /**
- * FastPay = pay amount in one step
+ * FastPay = pay in one step
  *
- * @class InstantPay (Nette 2.0 Component)
  * @author Martin Knor
- * @author Otto Sabart <seberm[at]gmail[dot]com> (www.seberm.com)
+ * @author Otto Sabart <seberm[at]seberm[dot]com> (www.seberm.com)
  */
 
 namespace Seberm\Components\PayPal;
