@@ -78,7 +78,7 @@ public $factory;
 /**
  * @param \Seberm\Components\PayPal\Buttons\IOrderFactory $factory
  */
-public function injectOrderFactory(\Seberm\Components\PayPal\Buttons\IOrderFactory $factory)
+public function injectFactory(\Seberm\Components\PayPal\Buttons\IOrderFactory $factory)
 {
     $this->factory = $factory;
 }
