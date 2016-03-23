@@ -112,7 +112,7 @@ protected function createComponentPaypalButton()
     $control->onError[] = array($this, 'errorOccurred');
     $control->onCancel[] = array($this, 'canceled');
 
-    // Is possible to set shipping
+    // It is possible to set shipping
     $button->shipping = 4.3;
 
     // or set a tax
@@ -153,7 +153,7 @@ public function errorOccurred($errors)  { ... }
 ```
 
 ```php
-public function confirmOrder($data)   { ... } // Is called If payment inicialization succeeds
+public function confirmOrder($data)   { ... } // It is called if payment inicialization succeeds
 public function canceled($data)       { ... } // Called if user cancels his order
 ```
 
