@@ -153,7 +153,16 @@ public function errorOccurred($errors)  { ... }
 ```
 
 ```php
-public function confirmOrder($data)   { ... } // It is called if payment inicialization succeeds
+// It is called if payment inicialization succeeds
+public function confirmOrder($data) {
+    /**
+     * Here you can do some checks of the order data. If everything is ok,
+     * you can confirm the order with confirmExpressCheckout() method.
+     */
+    ...
+    $this->orderButton->confirmExpressCheckout();
+}
+
 public function canceled($data)       { ... } // Called if user cancels his order
 ```
 
